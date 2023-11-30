@@ -1,0 +1,228 @@
+<resources>
+    <string name="app_name">朱家泓</string>
+
+    <!--貓頭鷹2 TODO-->
+    <string name="owl2_app_id">20210930152351642</string> <!--貓2 驗證Id-->
+    <string name="owl2_app_secret">5c91c55021bf11ec9be100090ffe0001</string><!--貓2 驗證密碼-->
+
+    <!--貓頭鷹2-->
+    <!--貓2 Api Domain-->
+    <string name="owl2_server_domain">https://gcp-owl-data-center-test.data-bee.com/owl2-api/</string>
+    <!--貓2 Websocket Domain-->
+    <string name="owl2_websocket_domain">wss://gcp-owl-data-center-test.data-bee.com/</string>
+    <!--期貨Websocket Domain-->
+    <string name="owl_api_future_socket_domain">wss://gcp-owl2-test-taifex-starwave-websocket.data-bee.com/owl2-taifex/portfolio/websocket/</string>
+    <!--五檔Websocket Domain-->
+    <string name="owl_api_fifth_socket_domain">wss://gcp-owl-data-center-test.data-bee.com/owl2-realtime/portfolio/websocket</string>
+
+    <!--星系 TODO -->
+    <!--產品編號-->
+    <string name="galaxy_product_code">20220809170816776516</string> <!--老師視角_老師會員編號,留空呼叫貓2產業視角-->
+    <string name="teacher_memberId">20210507151125488607</string> <!-- Api Domain-->
+    <string name="api_galaxy_url">https://tomcat85-5.mdevelop.com/GalaxyApi/dataTrans.do</string>
+
+    <!--TODO 請依照個專案設定以下資訊-->
+
+    <!--TODO App字體為淺色App -->
+    <string name="is_light_app">true</string>
+
+    <!--TODO App字體為全部粗體模式 -->
+    <string name="all_text_bold">false</string>
+
+    <!--老師/產業視角是否顯示更新時間-->
+    <string name="show_group_update_time">false</string>
+
+    <!--是否能試用App-->
+    <string name="experience_mode">true</string>
+
+    <!--特色說明個數-->
+    <string name="description_page_counts">4</string>
+
+    <!--是否有登入方式選項-->
+    <string name="has_protocol">true</string>
+
+    <!--自選頁群組樣式，朱家泓app樣式為2-->
+    <string name="favorite_group_style">2</string>
+
+    <!--情報頁TabBar是否出現底線-->
+    <string name="information_underline">false</string>
+
+    <!--情報頁position-->
+    <string name="media_position">3</string>
+    <string name="media_position_with_order">4</string>
+
+    <!--tabBar呈現icon最大個數-->
+    <string name="tab_max_count">7</string>
+
+    <!--Fragment底部TabBar-->
+    <string-array name="tab_text_list">
+        <item>自選</item>
+        <item>大盤</item>
+        <item>選股</item>
+        <item>鎖股</item>
+        <item>分點</item>
+        <item>情報</item>
+        <item>設定</item>
+    </string-array>
+    <!--未點選圖片名稱-->
+    <string-array name="tab_icon_list">
+        <item>ico_1</item>
+        <item>ico_2</item>
+        <item>ico_3</item>
+        <item>ico_4</item>
+        <item>ico_5</item>
+        <item>ico_6</item>
+        <item>ico_7</item>
+    </string-array>
+    <!--已點選圖片名稱-->
+    <string-array name="tab_icon_click_list">
+        <item>ico_1_click</item>
+        <item>ico_2_click</item>
+        <item>ico_3_click</item>
+        <item>ico_4_click</item>
+        <item>ico_5_click</item>
+        <item>ico_6_click</item>
+        <item>ico_7_click</item>
+    </string-array>
+    <!--上鎖選圖片名稱-->
+    <string-array name="tab_icon_lock_list">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item>teacher_lock</item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
+    <!--訂閱後，tabBar呈現icon最大個數-->
+    <string name="after_buy_tab_max_count">6</string>
+    <string name="order_string">交易</string>
+    <string name="more_string">更多</string>
+
+    <!--訂閱後，Fragment底部TabBar-->
+    <string-array name="after_buy_tab_text_list">
+        <item>自選</item>
+        <item>大盤</item>
+        <item>選股</item>
+        <item>鎖股</item>
+        <item>分點</item>
+        <item>情報</item>
+        <item>設定</item>
+    </string-array>
+    <!--未點選圖片名稱-->
+    <string-array name="after_buy_tab_icon_list">
+        <item>ico_1</item>
+        <item>ico_2</item>
+        <item>ico_3</item>
+        <item>ico_4</item>
+        <item>ico_5</item>
+        <item>ico_6</item>
+        <item>ico_7</item>
+    </string-array>
+    <!--點選圖片名稱-->
+    <string-array name="after_buy_tab_icon_click_list">
+        <item>ico_1_click</item>
+        <item>ico_2_click</item>
+        <item>ico_3_click</item>
+        <item>ico_4_click</item>
+        <item>ico_5_click</item>
+        <item>ico_6_click</item>
+        <item>ico_7_click</item>
+    </string-array>
+
+    <!--自選頁排序項目-->
+    <string-array name="favorite_filter_list">
+        <item>漲跌</item>
+        <item>量</item>
+        <item>期</item>
+
+    </string-array>
+
+    <!--預設個股-->
+    <string-array name="default_stock_list">
+        <item>2330</item>
+        <item>3406</item>
+        <item>2413</item>
+        <item>2327</item>
+        <item>3023</item>
+        <item>8255</item>
+        <item>5347</item>
+    </string-array>
+
+    <!--設定頁功能-->
+    <string-array name="setting_item">
+        <item>推播通知</item>
+        <item>指紋登入</item>
+        <item>下單功能</item>
+        <item>修改密碼</item>
+        <item>會員中心</item>
+        <item>訂閱狀態</item>
+        <item>購買項目</item>
+        <item>版本</item>
+        <item>使用說明</item>
+        <item>聯絡我們</item>
+        <item>取消訂閱</item>
+        <item>登出</item>
+    </string-array>
+
+    <!--設定頁底部按鈕連結-->
+    <string name="setting_bottom_uri">http://</string>
+    <string name="setting_bottom">資料來源：台灣證券交易所(TWSE)、財團法人中華民國證券櫃檯買賣中心、台灣期貨交易所及TEJ台灣經濟新報，本資料內容係經百商數位科技股份有限公司處理提供。\n分析模型設計：數碼證券投資顧問股份有限公司\n版權所有：百商數位/星系數位</string>
+
+    <!--使用說明-->
+    <string name="tutorial_default_title">使用說明</string>
+    <string name="tutorial_custom_title">false</string>
+    <string-array name="tutorial_item">
+        <item>自選</item>
+        <item>大盤</item>
+        <item>情報</item>
+        <item>選股池</item>
+        <item>鎖股池</item>
+        <item>策略符號</item>
+    </string-array>
+    <string-array name="tutorial_url_array">
+        <item>使用說明1_url</item>
+        <item>使用說明2_url</item>
+        <item>使用說明3_url</item>
+        <item>使用說明4_url</item>
+        <item>使用說明5_url</item>
+        <item>使用說明6_url</item>
+    </string-array>
+
+    <!--購買項目，不顯示請留空-->
+    <string name="purchasing_app">訂閱方案</string>
+    <string name="purchasing_deposit">購買金幣</string>
+    <string name="purchasing_class">購買課程</string>
+    <string name="purchasing_discounts">使用優惠代碼</string>
+
+    <!--會員中心，顯示項目-->
+    <string-array name="member_record_header">
+        <item>金幣紀錄</item>
+        <item>購買紀錄</item>
+    </string-array>
+
+    <!--會員中心，硬幣、枚色碼-->
+    <string name="member_coin_color">#FFBF35</string>
+    <string name="member_coin_unit_color">#000000</string>
+
+    <!--是否自動寬度，true=自動/false=均分螢幕寬度，預設false-->
+    <string name="media_tabbar_auto">false</string>
+
+    <!--fb_ApplicationId and fb_ClientToken-->
+    <string name="fb_ApplicationId">152332643473101</string>
+    <string name="fb_ClientToken">6b80d3a583e39df1b8b9d4c403c7e05a</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="fragment_text_bold">true</string>
+
+    <string name="taiex_txf_title">台指近</string>
+    <string name="taiex_otc_title">櫃買</string>
+    <string name="taiex_taiex_title">加權</string>
+
+    <string name="favorite_group_edit">修改群組名稱</string>
+    <string name="favorite_title">自選</string>
+
+</resources>

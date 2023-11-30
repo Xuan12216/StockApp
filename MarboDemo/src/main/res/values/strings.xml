@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="favorite_completed">完成</string>
+    <string name="favorite_cancel">取消</string>
+    <string name="alert_add_group_fulled_error">群組上限數為20組</string>
+    <string name="alert_add_group_repeat_error">已經有相同群組名稱</string>
+    <string name="add_group_success">新增完成</string>
+</resources>

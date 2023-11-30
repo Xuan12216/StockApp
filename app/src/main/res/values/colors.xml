@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="grey">#808080</color>
+    <color name="grey1">#666666</color>
+    <color name="background">#EBE8E3</color>
+    <color name="primary1">#866C45</color>
+    <color name="matching1_1">#0096AB</color>
+    <color name="matching1_2">#C7B89F</color>
+    <color name="matching1_3">#DAD0C1</color>
+    <color name="matching1_4">#EDE7DD</color>
+    <color name="primary2">#3F3F3F</color>
+    <color name="matching2_1">#A6A6A6</color>
+    <color name="matching2_2">#B9B9B9</color>
+    <color name="market_green">#31A931</color>
+    <color name="market_red">#E13B3B</color>
+    <color name="grown">#31160D</color>
+    <color name="transparent">#00000000</color>
+    <color name="gold">#EFCF99</color>
+    <color name="black1">#3F3F3F</color>
+
+    <!--set登入選擇頁Res-->
+    <color name="main_login_member">#FFFFFF</color>//會員登入文字
+    <color name="login_member">#FFFFFF</color>//登入文字
+    <color name="login_fb">#FFFFFF</color>//臉書登入文字
+
+    <!--set會員登入頁Res-->
+    <color name="login_hint">#3F3F3F</color>//輸入提示
+    <color name="login_edit_divider">#C7B89F</color>//帳號密碼分隔線
+    <color name="login_remember_account">#3F3F3F</color>//帳號密碼記憶開關文字
+
+    <!--set通用LoginRes-->
+    <color name="login_member_register">#866C45</color>//加入會員
+    <color name="login_forget_password">#866C45</color>//忘記密碼
+    <color name="login_version">#3F3F3F</color>
+    <color name="login_bg">#EBE8E3</color>
+    <color name="galaxy_bg">#EBE8E3</color>
+    <color name="content_bg">#EBE8E3</color>
+    <color name="description_bg">#EBE8E3</color>
+    <color name="galaxy_title_bg">#EBE8E3</color>
+    <color name="app_title_bg">#EBE8E3</color>
+    <color name="galaxy_title_text">#3F3F3F</color>
+    <color name="app_title_text">#FFFFFF</color>
+    <color name="tab_item_click">#FFFFFF</color>
+    <color name="tab_item_unclick">#FFFFFF</color>
+    <color name="fragment_tag_clicked">#EFCF99</color>
+    <color name="fragment_tag_unclick">#FFFFFF</color>
+
+    <!--set聯絡我們頁Res-->
+    <color name="galaxy_button_text">#FFFFFF</color>//底部按鈕文字
+    <color name="contact_edit_text">#3F3F3F</color>//說明文字
+    <color name="content_text">#3F3F3F</color>//說明文字
+    <color name="hint">#CCCCCC</color>
+
+    <!--set加入會員Res-->
+    <color name="validate_btn_text">#FFFFFF</color>//驗證按鈕文字
+
+    <!--set特色說明Res-->
+    <color name="description_title_text">#3F3F3F</color>//標題文字
+    <color name="description_button">#FFFFFF</color>
+
+    <!--popup-->
+    <color name="dialog_bg">#EBE8E3</color>
+    <color name="dialog_title">#866C45</color>
+    <color name="dialog_content_text">#3F3F3F</color>
+    <color name="dialog_button_text">#FFFFFF</color>
+    <color name="dialog_button2_text">#FFFFFF</color>
+    <color name="dialog_cover_bg">#85000000</color>
+    <color name="add_favorite_dialog_bg">#3F3F3F</color>
+    <color name="add_favorite_dialog_title">#866C45</color>
+    <color name="add_favorite_dialog_title_bg">#3F3F3F</color>
+
+    <!--set設定Res-->
+    <color name="setting_item">#3F3F3F</color>
+    <color name="setting_bottom">#3F3F3F</color>
+    <color name="setting_alarm">#3F3F3F</color>
+
+    <!--setTitleRes-->
+    <color name="app_title_btn_text">#FFFFFF</color>
+
+    <!--情報-->
+    <color name="information_text_unclick">#FFFFFF</color>
+    <color name="information_text_click">#FFFFFF</color>
+    <color name="information_item_title_bg">#EDE7DD</color>
+    <color name="information_video_lock_button_text">#3F3F3F</color>
+    <color name="information_item_button_text">#3F3F3F</color>
+    <color name="information_button_bg">#3F3F3F</color>
+    <color name="information_date_text">#3F3F3F</color>
+    <color name="information_video_title">#3F3F3F</color>
+    <color name="information_content">#3F3F3F</color>
+    <color name="information_audio_time">#3F3F3F</color>
+    <color name="information_audio_title">#866C45</color>
+
+    <!--set會員中心Res-->
+    <color name="member_account">#3F3F3F</color>
+    <color name="member_project">#3F3F3F</color>
+    <color name="member_expire_time">#3F3F3F</color>
+    <color name="member_record_header_click">#FFFFFF</color>
+    <color name="member_record_header_unclick">#FFFFFF</color>
+    <color name="member_record_item">#3F3F3F</color>
+    <color name="member_purchase_record_status">#3F3F3F</color>
+    <color name="member_purchase_record_payment">#3F3F3F</color>
+    <color name="member_purchase_record_price">#3F3F3F</color>
+    <color name="member_purchase_record_name">#3F3F3F</color>
+
+    <color name="discount_subtitle">#866C45</color>
+    <color name="tutorial_text">#3F3F3F</color>
+    <color name="base_sort_text">#3F3F3F</color>
+    <color name="filter_bg">#DACCB6</color>
+
+    <!--大盤趨勢即時線圖-->
+    <color name="taiex_divider">#DAD0C1</color>
+    <color name="txf_title_text">#866C45</color>
+    <color name="txf_item_title_text">#3F3F3F</color>
+    <color name="taiex_lock_layout_bg">#DAD0C1</color>
+    <color name="taiex_lock_btn_bg">#866C45</color>
+    <color name="taiex_lock_btn_text">#FFFFFF</color>
+
+    <!--自選上面大盤內容-->
+    <color name="favorite_overview_divider">#B9B9B9</color>
+    <color name="favorite_overview_bg">#EBE8E3</color>
+
+    <color name="stock_price_rise">#E13B3B</color>
+    <color name="stock_price_green">#31A931</color>
+    <color name="stock_price_plate">#FFFFFF</color>
+    <color name="favorite_overview_title_text">#866C45</color>
+    <color name="taiex_data_text">#3F3F3F</color>
+    <color name="taiex_date_text">#866C45</color>
+    <color name="taiex_data_divider">#DAD0C1</color>
+
+    <color name="exchange_header_bg">#DAD0C1</color>
+    <color name="exchange_header_text">#3F3F3F</color>
+    <color name="exchange_detail_text">#3F3F3F</color>
+
+    <color name="taiex_more_text">#3F3F3F</color>
+    <color name="taiex_rank_title_text">#866C45</color>
+    <color name="taiex_updown_look_more">#3F3F3F</color>
+
+    <!--自選-->
+    <color name="favorite_function_bg">#C7B89F</color>
+    <color name="tab_bg">#C7B89F</color>
+    <color name="favorite_update_time">#3F3F3F</color>
+
+    <!--查詢個股-->
+    <color name="search_clear">#9D8868</color>
+    <color name="history_text">#FFFFFF</color>
+    <color name="search_stock_edit">#FFFFFF</color>
+    <color name="search_stock_list_click">#DAD0C1</color>
+    <color name="search_history_bg">#DAD0C1</color>
+    <color name="search_history">#3F3F3F</color>
+
+    <!--新增個股-->
+    <color name="add_stock_edit">#A6A6A6</color>
+    <color name="add_stock_header_bg">#DAD0C1</color>
+    <color name="add_stock_header">#3F3F3F</color>
+    <color name="add_group_edit">#3F3F3F</color>
+    <color name="add_stock_continue_text">#FFFFFF</color>
+
+    <!--編輯個股-->
+    <color name="editor_tab_bg">#C7B89F</color>
+    <color name="editor_tab_text_click">#FFFFFF</color>
+    <color name="editor_tab_text_unclick">#FFFFFF</color>
+    <color name="add_group_list_text">#3F3F3F</color>
+    <color name="stock_group_bar_bg">#DAD0C1</color>
+    <color name="stock_group_bar_click">#866C45</color>
+    <color name="stock_group_bar_unclick">#3F3F3F</color>
+    <color name="stock_list_text">#3F3F3F</color>
+
+    <!--小台-->
+    <color name="taiex_rank_title_bg">#EBE8E3</color>
+    <color name="corporation_date_text">#866C45</color>
+    <color name="title_tab_focus">#FFFFFF</color>
+    <color name="title_tab_nonFocus">#7F716A</color>
+
+    <!--指數-->
+    <color name="rfbackground">#EBE8E3</color>
+    <color name="text_value_color">#3F3F3F</color>
+    <color name="sort_text">#3F3F3F</color>
+    <color name="sort_bg">#DACCB6</color>
+
+</resources>

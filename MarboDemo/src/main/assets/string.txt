@@ -1,0 +1,176 @@
+﻿id	cid	Text
+1	104	<font color=#000000>%s 開%s 高%s 低%s 收%s</font>
+2	104	<font color=%s>上軌%.2f 下軌%.2f</font> 
+3	104	<font color=%s>%dMA:%s</font> 
+4	104	<font color=#000000>量%s</font>
+5	104	<font color=%s>DIF %s</font> <font color=%s>MACD %s</font> <font color=%s>DIF-MACD %s</font>
+6	104	<font color=%s>K%s</font> <font color=%s>D%s</font>
+7	104	<font color=%s>RSI(5)%s</font> <font color=%s>RSI(10)%s</font>
+8	104	價%s 
+9	104	外資買賣超
+10	104	投信買賣超
+11	104	主力買賣超
+12	104	自營商買賣超
+13	104	自訂買賣超
+14	104	自訂買賣超
+15	104	自訂買賣超
+31	104	 避險%s
+32	104	▲
+33	104	▼
+34	104	–
+35	104	萬
+36	104	億
+37	104	<font color=%s>+DI %s</font> <font color=%s>-DI %s</font> <font color=%s>ADX %s</font>
+38	104	漲跌%s 
+39	104	<font color=%s>K%s</font> <font color=%s>D%s</font> <font color=%s>J%.2f</font>
+40	104	寶塔線
+41	104	外資成本:
+42	104	投信成本:
+43	104	主力成本:
+44	104	自營成本:
+45	104	融資成本:
+46	104	上軌:
+47	104	上軌:
+48	104	中軌:
+49	104	下軌:
+50	104	下軌: 
+58	104	 持股<font color=%s>%s</font> 當日持股比<font color=%s>%.2f%%</font> 
+59	104	<font color=#000000>%s</font> 股價<font color=%s>%s</font>
+60	104	股價 
+61	104	<font color=%s><b>一</b></font>%s 
+62	104	<img src=redgreen_bar.png>%s
+63	104	彩虹線
+64	104	乖離率 <font color=%s>%.2f%%</font>
+71	104	外資持股
+72	104	投信持股
+73	104	主力持股
+74	104	自營商持股
+301	104	月營收(億)
+302	104	月成長率
+303	104	年成長率
+306	104	公告EPS
+307	104	EPS成長率
+311	104	平均股利(近10年)
+312	104	殖利率(近10年)
+313	104	最新殖利率
+314	104	殖利率
+315	104	單位(元)
+316	104	單位(億)
+317	104	單位(倍)
+318	104	單位(%s)
+319	104	單位(次)
+321	104	"<p align=""right><font color=""#f8c91c"">█</font>年成長率</p>"
+322	104	"#2e92df,#f8c91c"
+323	104	"<p align=""right><font color=""#f8c91c"">█</font>EPS成長率</p>"
+324	104	"#2e92df,#f8c91c"
+325	104	"<p align=""right><font color=#2e92df>█</font>現金股利  <font color=#add377>█</font>股票股利"
+326	104	"#2e92df,#add377"
+327	104	"<p align=""right><font color=""#2e92df"">█</font>營業毛利  <font color=""#ff8e2b"">█</font>營業淨利  <font color=""#f8c91c"">█</font>稅後淨利</p>"
+328	104	"#2e92df,#ff8e2b,#f8c91c"
+329	104	"<p align=""right><font color=""#2e92df"">█</font>EPS(元)  <font color=""#f8c91c"">█</font>毛利率  <font color=""#add377"">█</font>營益率  <font color=""#ae87ff"">█</font>稅前淨利率  <font color=""#ff8e2b"">█</font>稅後淨利率</p>"
+330	104	"#2e92df,#f8c91c,#add377,#ae87ff,#ff8e2b"
+331	104	<p align=right><font color=#2e92df>█</font><font size=-2>累季資產報酬率</font>  <font color=#f8c91c>█</font><font size=-2>累季股東權益報酬率</font>  <font color=#add377>█</font><font size=-2>股價盈餘成長比</font></p>
+332	104	#2e92df,#f8c91c,#add377
+333	104	"<p align=right><font color=#2e92df>█</font>合約負債  <font color=#f8c91c>█</font>合約負債年增率  <font color=#add377>█</font>合約負債佔股本</p>"
+334	104	#2e92df,#f8c91c,#add377	
+335	104	"<p align=""right><font color=""#2e92df"">█</font>營收  <font color=""#f8c91c"">█</font>營收季增率  <font color=""#ae87ff"">█</font>應收帳款季增率  <font color=""#ff8e2b"">█</font>存貨周轉率"
+336	104	"#2e92df,#f8c91c,#ae87ff,#ff8e2b"
+337	104	"<p align=""right><font color=""#f8c91c"">█</font>資產  <font color=""#ae87ff"">█</font>流動資產  <font color=""#ff8e2b"">█</font>流動負債</p>"
+338	104	"#f8c91c,#ae87ff,#ff8e2b"
+339	104	"<p align=""right><font color=""#2e92df"">█</font>淨現金流  <font color=""#ff8e2b"">█</font>營業活動  <font color=""#f8c91c"">█</font>投資活動  <font color=""#ae87ff"">█</font>融資活動</p>"
+340	104	"#2e92df,#ff8e2b,#f8c91c,#ae87ff"
+341	104	"<p align=""right><font color=""#2e92df"">█</font>流動比率  <font color=""#ff8e2b"">█</font>速動比率  <font color=""#f8c91c"">█</font>負債比率</p>"
+342	104	"#2e92df,#ff8e2b,#f8c91c"
+343	104	"<p align=""right><font color=""#2e92df"">█</font>本益比  <img src=redgreen_bar.png>月K</p>"
+344	104	"#2e92df,#f8c91c"
+345	104	"<p align=""right><font color=""#2e92df"">█</font>本淨比  <img src=redgreen_bar.png>月K</p>"
+346	104	"#2e92df,#f8c91c"
+355	104	<p align="center"><font color="#ff3030">%.02f  </font><font color="#2ea7df">█</font>%.02f  <font color="#77d9ff">█</font>%.02f  <font color="#ebdcfc">█</font>%.02f <font color="#d4abff">█</font>%.02f  <font color="#b970ff">█</font>%.02f</p>
+356	104	#2ea7df,#77d9ff,#ebdcfc,#d4abff,#b970ff,#ebdcfc
+357	104	#ff3030
+361	104	█
+362	104	□
+363	104	轉虧為盈
+364	104	轉盈為虧
+365	104	連續虧損
+374	104	填息機率(近10年)
+375	104	填息所需天數(近10年)
+377	104	%.02f%
+378	104	%.02f天
+381	104	殖利率過低不適用
+382	104	未配息
+383	104	未發放
+384	104	填息失敗
+385	104	未填息
+386	104	財報季度
+401	104	日期
+402	104	外資
+403	104	投信
+404	104	自營商
+405	104	合計
+406	104	日期
+407	104	資增減
+408	104	券增減
+409	104	借券賣(張)
+410	104	現股當沖
+411	104	借券餘額
+413	104	賣%s張
+414	104	買超%s張
+415	104	賣超%s張
+416	104	融資餘額
+417	104	融券餘額
+418	104	借券賣出餘額(張)
+419	104	多空K
+420	104	現股當沖量%s張(佔總量%s%%)
+421	104	<font color=#ffff80>%s</font>  收：%s 波動率均值：<font color=%s>%s%%</font> 參考訊號：%s
+422	104	<font color=%s>強力看多</font>
+423	104	<font color=%s>偏多</font>
+424	104	<font color=%s>盤整</font>
+425	104	<font color=%s>偏空</font>
+426	104	<font color=%s>強力看多</font>
+429	104	%s~%s 區間買賣超<font color=%s>%s</font>張 
+430	104	%s 買<font color=%s>%s</font>張 賣<font color=%s>%s</font>張
+431	104	日期
+432	104	買張(均價)
+433	104	賣張(均價)
+434	104	買賣超張
+435	104	%s(%.2f)
+436	104	現股當沖量
+501	104	開：%.02f
+502	104	高：%.02f
+503	104	低：%.02f
+504	104	收：%.02f
+505	104	<font color="%s">%dMA %.02f%s </font>
+506	104	股價：<font color="%s">%.02f%s </font>
+704	104	<font color="#fffa00">●　%s張以上大股東：</font><br>　　持股 %.02f%%，增減 %.02f%%<br>
+705	104	<font color="#fffa00">●　%s張以上內部大股東：</font><br>　　持股張數 %d，增減 %.02f%%<br>
+706	104	<font color="#fffa00">●　%s張以上大股東：</font><br>　　人數 %d人，增減 %d人<br>
+707	104	<font color="#59bf88">●　三大法人：</font><br>　　持股張數 %d，增減 %d張<br>
+708	104	<font color="#aaaaaa">●　%s張以下小股東：</font><br>　　持股 %.02f%%，增減 %.02f%%<br>
+709	104	<font color="#aaaaaa">●　%s張以下小股東：</font><br>　　人數 %d人，增減 %d人<br>
+711	104	<font color="%s"><b>一</b></font>大股東持股比例 <font color="%s"><b>一</b></font>股價
+712	104	<font color="%s"><b>一</b></font>大股東 <font color="%s"><b>一</b></font>小股東
+713	104	<font color="%s"><b>一</b></font>內部大股東累計張數 <b><font color="%s">-</font><font color="%s">-</font></b>內部大股東買賣超
+714	104	<font color="%s"><b>一</b></font>平均張數/股東 <font color="%s"><b>一</b></font>股價
+715	104	#51b4ef
+716	104	#f8c91c
+717	104	#ff8e2b
+718	104	#f8c91c
+721	104	近十週持股比例明細為「全部大股東頁」所選擇的張數，可看出持股張數大股東的明細及變動。若未選擇時則為大股東為大於400張，小股東為小於100張。
+722	104	內部大股東為扣除三大法人後的指標，更能清楚了解市場上大戶走向。大戶又以股價作為區分，通常股價大於50，持股超過400張就算大戶；股價小於50，持股超過1000張才算大戶。
+723	104	股東平均張數可當成大戶指標。市場上流通的發行數量為固定的，當股當人數變多，股東平均張數將會下降變少，可視為大戶將手中持股賣給散戶。大戶指標變多可視為大戶手中張數越多。
+751	104	大股東持股%%數：<font color="%s">%.02f</font>%%
+752	104	小股東持股%%數：<font color="%s">%.02f</font>%%
+753	104	大股東持股人數：<font color="%s">%d</font>
+754	104	小股東持股人數：<font color="%s">%d</font>
+755	104	內部大股東累計：<font color="%s">%d</font>張
+756	104	內部大股東買賣超：<font color="%s">%d</font>張
+757	104	平均張數：<font color="%s">%.02f</font>張
+801	104	<font size=+2 color="#2ea7df">●%d月加碼比例最多十大股東：</font><br>%s，買超<font color="#FF3030">%s</font>張<br>
+802	104	<font size=+2 color="#2ea7df">●%d月加碼比例最多十大股東：</font><br>無<br>
+803	104	<font size=+2 color="#2ea7df">●%d月減碼比例最多十大股東：</font><br>%s，賣超<font color="#00FF00">%s</font>張<br>
+804	104	<font size=+2 color="#2ea7df">●%d月減碼比例最多十大股東：</font><br>無<br>
+805	104	<font size=+2 color="#2ea7df">●%d月新上榜十大股東：</font><br>
+806	104	新上榜
+807	104	、
+808	104	無

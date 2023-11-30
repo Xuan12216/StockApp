@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <drawable name="max_price_bg" />
+    <drawable name="min_price_bg" />
+</resources>

@@ -1,0 +1,6 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 選中狀態下的背景顏色 -->
+    <item android:state_selected="true" android:drawable="@color/primary1" />
+    <!-- 默認狀態下的背景顏色 -->
+    <item android:drawable="@color/matching1_2" />
+</selector>

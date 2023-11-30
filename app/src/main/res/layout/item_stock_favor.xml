@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/matching1_4">
+
+    <TextView
+        android:id="@+id/stockNameTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:text="TextView"
+        android:textSize="18dp"
+        android:textColor="@color/black1"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/stockNoTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:text="TextView"
+        android:textColor="@color/black1"
+        android:textSize="14dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/stockNameTv"
+        app:layout_constraintStart_toEndOf="@+id/stockNameTv" />
+
+    <ImageView
+        android:id="@+id/stock_type_tv"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_marginStart="5dp"
+        android:src="@mipmap/stock_icon_qi"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/stockNameTv"
+        app:layout_constraintStart_toEndOf="@+id/stockNoTv"
+        app:layout_constraintTop_toTopOf="@+id/stockNameTv" />
+
+    <ImageView
+        android:id="@+id/stock_type_tv2"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_marginStart="5dp"
+        android:src="@mipmap/stock_icon_gui"
+        app:layout_constraintBottom_toBottomOf="@+id/stockNameTv"
+        app:layout_constraintStart_toEndOf="@+id/stock_type_tv"
+        app:layout_constraintTop_toTopOf="@+id/stockNameTv" />
+
+    <RelativeLayout
+        android:id="@+id/price_container"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp"
+        android:paddingStart="0dp"
+        android:paddingEnd="0dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline8"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/stockNameTv">
+
+        <TextView
+            android:id="@+id/price_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="5dp"
+            android:text="29.90"
+            android:textColor="@color/market_red"
+            android:textSize="24sp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/percent_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/price_tv"
+            android:layout_marginBottom="3dp"
+            android:layout_toEndOf="@+id/price_tv"
+            android:paddingRight="5dp"
+            android:text=" +0.50 (+1.72%)▲"
+            android:textColor="@color/market_red"
+            android:textSize="12sp" />
+
+    </RelativeLayout>
+
+    <com.example.ZhuJiaHong.object.CustomPercentView.CustomPercentView
+        android:id="@+id/customPercentView"
+        android:layout_width="0dp"
+        android:layout_height="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline8"
+        app:layout_constraintStart_toStartOf="@+id/price_container"
+        app:layout_constraintTop_toBottomOf="@+id/price_container" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.55" />
+
+    <TextView
+        android:id="@+id/industry_type_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="TextView"
+        android:textSize="14dp"
+        android:textColor="@color/matching1_1"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/stockNameTv"
+        app:layout_constraintTop_toBottomOf="@+id/customPercentView" />
+
+    <TextView
+        android:id="@+id/amount_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:text="TextView"
+        android:textColor="@color/black1"
+        android:textSize="14dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/industry_type_tv"
+        app:layout_constraintStart_toEndOf="@+id/textView" />
+
+    <mdbs.basechart.view.realtime.ModelRealTimeLine2
+        android:id="@+id/trend_view"
+        android:layout_width="140dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/amount_tv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/stockNameTv" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/matching1_3"
+        app:layout_constraintTop_toBottomOf="@+id/trend_view"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:text="量"
+        android:textColor="@color/black1"
+        android:textSize="14dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/industry_type_tv"
+        app:layout_constraintStart_toEndOf="@+id/industry_type_tv"
+        app:layout_constraintTop_toTopOf="@+id/industry_type_tv" />
+</androidx.constraintlayout.widget.ConstraintLayout>

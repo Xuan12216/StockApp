@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY"/>
+    <uses-permission android:name="android.permission.REORDER_TASKS"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
+
+    <application
+        android:name=".AppApplication"
+        android:allowBackup="false"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/MyAppTheme"
+        tools:targetApi="31" >
+
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/fb_ApplicationId"/>
+        <meta-data android:name="com.facebook.sdk.ClientToken" android:value="@string/fb_ClientToken"/>
+        <meta-data android:name="com.facebook.sdk.AutoLogAppEventsEnabled" android:value="false"/>
+        <meta-data android:name="com.facebook.sdk.AdvertiserIDCollectionEnabled" android:value="false"/>
+
+        <!--首頁-->
+        <activity
+            android:name=".activity.ActivityHomePage"
+            android:exported="false"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="${applicationId}.homepage"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+
+        <!--啟動頁-->
+        <activity
+            android:name="com.mdbs.base.view.activity.ActivityLoading"
+            android:exported="true"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="${applicationId}.open" />
+                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!--購買頁-->
+        <activity
+            android:name="com.mdbs.base.view.activity.ActivityPurchasing"
+            android:exported="false"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="${applicationId}.purchasing" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!--登入選擇頁-->
+        <activity
+            android:name="com.mdbs.base.view.activity.ActivityMain"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <!--登入頁-->
+        <activity
+            android:name="com.mdbs.base.view.activity.ActivityLogin"
+            android:screenOrientation="portrait" />
+
+        <!--免責聲明-->
+        <activity
+            android:name="com.mdbs.base.view.activity.ActivityDuty"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <!--忘記密碼-->
+        <activity
+            android:name="com.mdbs.base.view.activity.ActivityForgetPwd"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <!--加入會員-->
+        <activity
+            android:name="com.mdbs.base.view.activity.ActivityRegister"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <!--手機驗證-->
+        <activity
+            android:name="com.mdbs.base.view.activity.ActivityPhoneCert"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <!--忘記密碼-->
+        <activity
+            android:name="com.mdbs.base.view.activity.ActivityChangePwd"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <!--自選編輯-->
+        <activity
+            android:name="com.mdbs.base.view.activity.ActivityFavoriteEdit"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <!--使用說明-->
+        <activity
+            android:name="com.mdbs.base.view.activity.ActivityTutorial"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <!--會員中心-->
+        <activity
+            android:name="com.mdbs.base.view.activity.ActivityMemberCenter"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <!--個股頁-->
+        <activity
+            android:name=".activity.ActivityStock"
+            android:exported="false"
+            android:theme="@style/Theme.MaterialComponents.NoActionBar"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="${applicationId}.stock"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+
+        <!--產業群頁-->
+        <activity
+            android:name=".activity.ActivityStockIndustry"
+            android:exported="false"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="${applicationId}.stock_industry"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+
+        <!--漲跌家數-->
+        <activity
+            android:name=".activity.ActivityUpDown"
+            android:exported="false"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="${applicationId}.updown"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+
+        <!--新增單一個股-->
+        <activity
+            android:name="com.mdbs.base.view.activity.ActivityStockAdd"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <!--新增多檔個股-->
+        <activity
+            android:name="com.mdbs.base.view.activity.ActivityStocksAdd"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <!--小網-->
+        <activity
+            android:name="com.mdbs.base.view.activity.ActivityWeb"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <!--語音播放頁-->
+        <activity
+            android:name="com.mdbs.base.view.activity.ActivityAudioPlayer"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <!--影片列表-->
+        <activity
+            android:name="com.mdbs.base.view.activity.ActivityVideo"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <!--聯絡我們-->
+        <activity
+            android:name="com.mdbs.base.view.activity.ActivityCustomer"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <!--特色說明-->
+        <activity
+            android:name="com.mdbs.base.view.activity.ActivityDescription"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <!--優惠代碼-->
+        <activity
+            android:name="com.mdbs.base.view.activity.ActivityDiscount"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <!--影片播放頁-->
+        <activity
+            android:name="com.mdbs.base.view.activity.ActivityVideoPlayer"
+            android:exported="false"/>
+
+        <!--公版-->
+
+        <!--法人佈局內頁-->
+        <activity
+            android:name="com.mdbs.basechart.activity.ActivityCorporation"
+            android:exported="false"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="${applicationId}.corporation"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+
+        <!--大盤行事曆內頁-->
+        <activity
+            android:name="com.mdbs.basechart.activity.ActivityCalendar"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <!--產業分布內頁-->
+        <activity android:name="com.mdbs.basechart.activity.ActivityDistribution"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <!--產業多空內頁-->
+        <activity
+            android:name="com.mdbs.basechart.activity.ActivityIndustry"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <!--法人動向內頁-->
+        <activity android:name="com.mdbs.basechart.activity.ActivityInvestors"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <!--大盤快訊內頁-->
+        <activity
+            android:name="com.mdbs.basechart.activity.ActivityNews"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <!--指數報價內頁-->
+        <activity
+            android:name="com.mdbs.basechart.activity.ActivityTwse"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <!--指數排行內頁-->
+        <activity android:name="com.mdbs.basechart.activity.ActivityTwseRank"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+    </application>
+</manifest>
