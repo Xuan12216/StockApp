@@ -50,14 +50,14 @@ import io.reactivex.internal.functions.Functions;
 import mdbs.basechart.view.realtime.ModelRealTimeLine2;
 
 public class FragmentChooseStockAdapter extends RecyclerView.Adapter<FragmentChooseStockAdapter.ViewHolder> {
-    private Data data = new Data();
     private List<String> symbolsList = new ArrayList<>();
     private Map<String, ProductSymbol> stockMap = StockInfoLoader.getInstance().get();
     private HashMap<String, ViewHolder> viewHolderMap = new HashMap<>();
     private Context mContext;
     private WebsocketGetter mWebsocketGetter;
     private RFStock0Data mRFStock0Data;
-    LifecycleOwner lifecycleOwner;
+    private List<String> listFuture = AppApplication.futureListStockNoOnly;
+    private LifecycleOwner lifecycleOwner;
 
     public FragmentChooseStockAdapter(List<String> symbolsList, Context context, WebsocketGetter websocketGetter, LifecycleOwner lifecycleOwner) {
         this.symbolsList = new ArrayList<>(symbolsList);
@@ -113,9 +113,7 @@ public class FragmentChooseStockAdapter extends RecyclerView.Adapter<FragmentCho
                             mContext.startActivity(intent);
 
                         }
-                        else {
-                            BaseUtil.popUpPurchasingDialog(mContext);
-                        }
+                        else BaseUtil.popUpPurchasingDialog(mContext);
                     }
                 }
             });
@@ -125,7 +123,6 @@ public class FragmentChooseStockAdapter extends RecyclerView.Adapter<FragmentCho
 
             //icon_qi
             // 在合適的地方初始化哈希集合，例如在適配器的構造函數中
-            List<String> listFuture = AppApplication.futureListStockNoOnly;
             if (listFuture != null && !listFuture .isEmpty()){
                 if (listFuture.contains(stockNo)) holder.imageViewQi.setVisibility(View.VISIBLE);
                 else holder.imageViewQi.setVisibility(View.GONE);
@@ -307,5 +304,4 @@ public class FragmentChooseStockAdapter extends RecyclerView.Adapter<FragmentCho
             disposes.clear();
         }
     }
-
 }

@@ -82,8 +82,27 @@ public class Data {
     private static String strategy_1 = "頭高底高";
     private static String priceFilter = "全部";
     private static LifecycleOwner lifecycleOwner;
+    private static final String PREF_NAME = "FlexBoxClickStatus";
+    private static final String KEY_IS_CLICKED_PREFIX = "isClicked_";
+
 
     //==============================================================================
+
+    public static void saveClickStatus(Context context, String flexBoxId, String textViewId, boolean isClicked) {
+        SharedPreferences preferences = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putBoolean(getPrefKey(flexBoxId, textViewId), isClicked);
+        editor.apply();
+    }
+
+    public static boolean loadClickStatus(Context context, String flexBoxId, String textViewId) {
+        SharedPreferences preferences = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
+        return preferences.getBoolean(getPrefKey(flexBoxId, textViewId), false);
+    }
+
+    private static String getPrefKey(String flexBoxId, String textViewId) {
+        return KEY_IS_CLICKED_PREFIX + flexBoxId + "_" + textViewId;
+    }
 
     public LifecycleOwner getLifecycleOwner() {
         return lifecycleOwner;

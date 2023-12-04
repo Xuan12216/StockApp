@@ -55,19 +55,18 @@ public class MyUtils1{
     //================================================
     //StrategyApi
 
-    public void callStrategyApi(String strategy, String strategy_1, FragmentActivity activity) {
-
+    //isLongOrShort false = 多， true = 空
+    public void callStrategyApi(boolean isLongOrShort, String strategy, String strategy_1, FragmentActivity activity) {
         String temp = "頭高底高";
         MyApi strategyApi = RxStrategyHttpClient.getInstance().getStrategyApi();
 
-        if ("波段".equals(strategy)) {
-            if ("頭高底高".equals(strategy_1)) temp = "頭高底高";
-            else if ("回後進場".equals(strategy_1)) temp = "回後進場";
-        }
-        else if ("長抱".equals(strategy)) temp = "長抱";
-        else if ("盤中強勢".equals(strategy)) temp = "盤中強勢";
-        else if ("盤中排行".equals(strategy)) temp = "盤中排行";
-        else if ("一點鐘".equals(strategy)) temp = "一點鐘";
+        if ("波段".equals(strategy)) temp = strategy_1;
+        else temp = strategy;
+
+        if ("盤中排行".equals(temp) && !isLongOrShort) temp = "盤中排行_多";
+        else if ("盤中排行".equals(temp) && isLongOrShort) temp = "盤中排行_空";
+        else if ("一點鐘".equals(temp) && !isLongOrShort) temp = "一點鐘_多";
+        else if ("一點鐘".equals(temp) && isLongOrShort) temp = "一點鐘_空";
 
         if (disposable != null && !disposable.isDisposed())disposable.dispose();
 
@@ -91,16 +90,34 @@ public class MyUtils1{
         switch (strategy) {
             case "頭高底高":
                 return strategyApi.頭高底高(requestBody,"*/*",authorization);
-            case "回後進場":
-                return strategyApi.回後進場(requestBody,"*/*",authorization);
+            case "回後準進場":
+                return strategyApi.回後準進場(requestBody,"*/*",authorization);
+            case "起漲策略":
+                return strategyApi.起漲策略(requestBody,"*/*",authorization);
+            case "雙線黃金交叉":
+                return strategyApi.雙線黃金交叉(requestBody,"*/*",authorization);
+            case "頭低底低":
+                return strategyApi.頭低底低(requestBody,"*/*",authorization);
+            case "彈後準進場":
+                return strategyApi.彈後準進場(requestBody,"*/*",authorization);
+            case "起跌策略":
+                return strategyApi.起跌策略(requestBody,"*/*",authorization);
+            case "雙線死亡交叉":
+                return strategyApi.雙線死亡交叉(requestBody,"*/*",authorization);
             case "長抱":
                 return strategyApi.長抱(requestBody,"*/*",authorization);
             case "盤中強勢":
                 return strategyApi.盤中強勢(requestBody,"*/*",authorization);
-            case "盤中排行":
-                return strategyApi.盤中排行(requestBody,"*/*",authorization);
-            case "一點鐘":
-                return strategyApi.一點鐘(requestBody,"*/*",authorization);
+            case "盤中弱勢":
+                return strategyApi.盤中弱勢(requestBody,"*/*",authorization);
+            case "盤中排行_多":
+                return strategyApi.盤中排行_多(requestBody,"*/*",authorization);
+            case "一點鐘_多":
+                return strategyApi.一點鐘_多(requestBody,"*/*",authorization);
+            case "盤中排行_空":
+                return strategyApi.盤中排行_空(requestBody,"*/*",authorization);
+            case "一點鐘_空":
+                return strategyApi.一點鐘_空(requestBody,"*/*",authorization);
             default:
                 return Single.error(new IllegalArgumentException("Invalid strategy URL"));
         }
@@ -188,7 +205,9 @@ public class MyUtils1{
 
     public int findTabItemIndex(String categories,String[] tabItem) {
         for (int i = 0; i < tabItem.length; i++){
-            if (categories.equals(tabItem[i])) return i;
+            if (categories.equals(tabItem[i])) {
+                return i;
+            }
         }
         return 0;
     }

@@ -67,9 +67,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:autoSizeMaxTextSize="20sp"
-            android:autoSizeMinTextSize="10sp"
-            android:autoSizeTextType="uniform"
             android:text="選股池"
             android:textColor="@color/white"
             android:textSize="20dp"
@@ -95,7 +92,7 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:src="@mipmap/icon_info"
-            android:layout_marginRight="10dp"
+            android:layout_marginRight="5dp"
             app:layout_constraintBottom_toBottomOf="@+id/imageView1"
             app:layout_constraintEnd_toEndOf="@+id/imageView1"
             app:layout_constraintTop_toTopOf="@+id/imageView1"/>
@@ -105,7 +102,7 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:src="@drawable/baseline_add_circle"
-            android:layout_marginRight="5dp"
+            android:layout_marginRight="3dp"
             app:layout_constraintBottom_toBottomOf="@+id/imageView1"
             app:layout_constraintEnd_toStartOf="@+id/icon_info"
             app:layout_constraintTop_toTopOf="@+id/imageView1"/>
@@ -115,7 +112,7 @@
             android:layout_width="48dp"
             android:layout_height="30dp"
             android:src="@mipmap/btn_record"
-            android:layout_marginRight="5dp"
+            android:layout_marginRight="3dp"
             app:layout_constraintBottom_toBottomOf="@+id/imageView1"
             app:layout_constraintEnd_toStartOf="@+id/icon_add"
             app:layout_constraintTop_toTopOf="@+id/imageView1"/>
@@ -295,17 +292,33 @@
             app:layout_constraintStart_toStartOf="@+id/imageViewCloseTIme"
             app:layout_constraintTop_toTopOf="@+id/imageViewCloseTIme" />
 
+        <TextView
+            android:id="@+id/all_touch_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:text="全部觸及"
+            android:visibility="gone"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:background="@color/matching1_2"
+            android:paddingLeft="3dp"
+            android:paddingRight="3dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabLayoutDown"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="36dp"
-            android:background="@color/matching1_2"
+            android:background="@color/matching1_3"
             app:tabTextAppearance="@style/TabTextStyle"
             app:tabTextColor="@color/primary2"
             app:tabSelectedTextColor="@color/primary1"
             app:tabIndicatorColor="@color/primary1"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/all_touch_tv"
             app:layout_constraintStart_toStartOf="parent"
             app:tabRippleColor="@color/transparent">
 

@@ -24,7 +24,13 @@ public interface MyApi {
     Single<ResponseBody> 頭高底高(@Body RequestBody var1, @Header("accept") String var0, @Header("Authorization") String authorization);
 
     @POST("api/logic/strategy/B102")
-    Single<ResponseBody> 回後進場(@Body RequestBody var1, @Header("accept") String var0, @Header("Authorization") String authorization);
+    Single<ResponseBody> 回後準進場(@Body RequestBody var1, @Header("accept") String var0, @Header("Authorization") String authorization);
+
+    @POST("api/logic/strategy/Q101")
+    Single<ResponseBody> 起漲策略(@Body RequestBody var1, @Header("accept") String var0, @Header("Authorization") String authorization);
+
+    @POST("api/logic/strategy/R101")
+    Single<ResponseBody> 雙線黃金交叉(@Body RequestBody var1, @Header("accept") String var0, @Header("Authorization") String authorization);
 
     @POST("api/logic/strategy/C101")
     Single<ResponseBody> 長抱(@Body RequestBody var1, @Header("accept") String var0, @Header("Authorization") String authorization);
@@ -33,9 +39,34 @@ public interface MyApi {
     Single<ResponseBody> 盤中強勢(@Body RequestBody var1, @Header("accept") String var0, @Header("Authorization") String authorization);
 
     @POST("api/logic/strategy/P101")
-    Single<ResponseBody> 盤中排行(@Body RequestBody var1, @Header("accept") String var0, @Header("Authorization") String authorization);
+    Single<ResponseBody> 盤中排行_多(@Body RequestBody var1, @Header("accept") String var0, @Header("Authorization") String authorization);
 
     @POST("api/logic/strategy/N101")
-    Single<ResponseBody> 一點鐘(@Body RequestBody var1, @Header("accept") String var0, @Header("Authorization") String authorization);
+    Single<ResponseBody> 一點鐘_多(@Body RequestBody var1, @Header("accept") String var0, @Header("Authorization") String authorization);
+
+    //=====================================
+
+    @POST("api/logic/strategy/B201")
+    Single<ResponseBody> 頭低底低(@Body RequestBody var1, @Header("accept") String var0, @Header("Authorization") String authorization);
+
+    @POST("api/logic/strategy/B202")
+    Single<ResponseBody> 彈後準進場(@Body RequestBody var1, @Header("accept") String var0, @Header("Authorization") String authorization);
+
+    @POST("api/logic/strategy/Q201")
+    Single<ResponseBody> 起跌策略(@Body RequestBody var1, @Header("accept") String var0, @Header("Authorization") String authorization);
+
+    @POST("api/logic/strategy/R201")
+    Single<ResponseBody> 雙線死亡交叉(@Body RequestBody var1, @Header("accept") String var0, @Header("Authorization") String authorization);
+
+    @POST("api/logic/strategy/M201")
+    Single<ResponseBody> 盤中弱勢(@Body RequestBody var1, @Header("accept") String var0, @Header("Authorization") String authorization);
+
+    @POST("api/logic/strategy/P201")
+    Single<ResponseBody> 盤中排行_空(@Body RequestBody var1, @Header("accept") String var0, @Header("Authorization") String authorization);
+
+    @POST("api/logic/strategy/N201")
+    Single<ResponseBody> 一點鐘_空(@Body RequestBody var1, @Header("accept") String var0, @Header("Authorization") String authorization);
+
+
 }
 

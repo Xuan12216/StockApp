@@ -1,7 +1,8 @@
 package com.example.ZhuJiaHong.fragment.FragmentChooseStock;
 
+import android.content.Intent;
 import android.os.Bundle;
-import androidx.fragment.app.FragmentActivity;
+
 import androidx.recyclerview.widget.LinearLayoutManager;
 import android.os.Handler;
 import android.os.Parcelable;
@@ -13,6 +14,8 @@ import android.view.ViewGroup;
 import com.example.ZhuJiaHong.R;
 import com.example.ZhuJiaHong.Util.Data;
 import com.example.ZhuJiaHong.Util.MyUtils1;
+import com.example.ZhuJiaHong.activity.FragmentChooseStockActivity.ActivityAdvancedSettings;
+import com.example.ZhuJiaHong.activity.FragmentChooseStockActivity.ActivityInfo;
 import com.example.ZhuJiaHong.databinding.FragmentChooseStockBinding;
 import com.example.ZhuJiaHong.model.Filter;
 import com.example.ZhuJiaHong.object.favourite.MyDataSourceRequired;
@@ -20,6 +23,7 @@ import com.google.android.material.tabs.TabLayout;
 import com.mdbs.base.view.domain.BaseStockData;
 import com.mdbs.base.view.fragment.BaseFragment;
 import com.mdbs.base.view.object.dialog.LoadingDialog;
+import com.mdbs.base.view.utils.Utils;
 import com.mdbs.basechart.client.WebsocketGetter;
 import com.mdbs.starwave_meta.network.rxhttp.method.TransformerHolder;
 import com.mdbs.starwave_meta.tools.WhenDispose;
@@ -32,7 +36,6 @@ import java.util.TimeZone;
 import io.reactivex.disposables.CompositeDisposable;
 
 public class FragmentChooseStock extends BaseFragment implements MyUtils1.OnDataUpdateListener {
-
     private FragmentChooseStockBinding binding;
     private Data data = new Data();
     private FragmentChooseStockAdapter adapter;
@@ -41,7 +44,9 @@ public class FragmentChooseStock extends BaseFragment implements MyUtils1.OnData
     private MyUtils1 myUtils1 = new MyUtils1();
     private WebsocketGetter mWebsocketGetter;
     private String[] tabUpItem = {"波段","長抱","盤中強勢","盤中排行","一點鐘"};
-    private String[] tabMidItem = {"頭高底高","回後進場"};
+    private String[] tabUpItem1 = {"波段","盤中弱勢","盤中排行","一點鐘"};
+    private String[] tabMidItem = {"頭高底高","回後準進場","起漲策略","雙線黃金交叉"};
+    private String[] tabMidItem1 = {"頭低底低","彈後準進場","起跌策略","雙線死亡交叉"};
     private String[] tabDownItem = {"全部","低價","中價","高價","超高"};
     private LinearLayoutManager layoutManager;
     private Handler handler = new Handler();
@@ -54,7 +59,7 @@ public class FragmentChooseStock extends BaseFragment implements MyUtils1.OnData
     private String[] isQi = {"false", "true", "no"};
     private static int indexZhang = -1, indexLiang = -1, indexQi = -1;
     private List<String> priceSymbols = new ArrayList<>();
-    private boolean img_tab_click_status = false;
+    private static boolean img_tab_click_status = false, all_touch_status = false;//false 多， true 空, 全部觸及
     private com.mdbs.base.view.object.dialog.LoadingDialog loadingDialog;
 
     @Override
@@ -66,15 +71,84 @@ public class FragmentChooseStock extends BaseFragment implements MyUtils1.OnData
         layoutManager = new LinearLayoutManager(getActivity());
         binding.recyclerViewSelect.setLayoutManager(layoutManager);
 
-        //listener
+        adjustUiSize();
+        listenerFunc();
+        MyUtils1.setOnDataUpdateListener(this);
+
+        return view;
+    }
+
+    public void setTabItem() {
+        binding.tabLayoutUp.removeAllTabs();
+        binding.tableLayoutMiddle.removeAllTabs();
+
+        String[] tempTabUpItem = tabUpItem;
+        String[] tempTabMediumItem = tabMidItem;
+
+        if (img_tab_click_status) {
+            tempTabUpItem = tabUpItem1;
+            tempTabMediumItem = tabMidItem1;
+        }
+
+        replaceTabItem("tabUp",tempTabUpItem);
+        replaceTabItem("tabMid",tempTabMediumItem);
+    }
+
+    public void replaceTabItem(String tab, String[] tempTabItem) {
+        if ("tabUp".equals(tab)) {
+            String tempFindItem = data.getStrategy();
+            binding.tabLayoutUp.removeAllTabs();
+
+            for (int i = 0; i < tempTabItem.length; i++) {
+                TabLayout.Tab newTab = binding.tabLayoutUp.newTab();
+                newTab.setText(tempTabItem[i]);
+                binding.tabLayoutUp.addTab(newTab);
+            }
+
+            refreshTabPosition(binding.tabLayoutUp, tempTabItem, tempFindItem);
+        }
+        else if ("tabMid".equals(tab)){
+            String tempFindItem = data.getStrategy_1();
+            binding.tableLayoutMiddle.removeAllTabs();
+
+            for (int i = 0; i < tempTabItem.length; i++) {
+                TabLayout.Tab newTab = binding.tableLayoutMiddle.newTab();
+                newTab.setText(tempTabItem[i]);
+                binding.tableLayoutMiddle.addTab(newTab);
+            }
+            refreshTabPosition(binding.tableLayoutMiddle, tempTabItem, tempFindItem);
+        }
+    }
+
+
+    private void listenerFunc() {
+        binding.allTouchTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                all_touch_status = !all_touch_status;
+                checkShortOrLongAndAllTouch();
+            }
+        });
+        binding.iconInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(mContext, ActivityInfo.class));
+            }
+        });
+
+        binding.iconAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(mContext, ActivityAdvancedSettings.class));
+            }
+        });
 
         binding.imgTab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 img_tab_click_status = !img_tab_click_status;
-
-                if (img_tab_click_status) binding.imgTab.setImageResource(R.mipmap.img_tab_short);
-                else binding.imgTab.setImageResource(R.mipmap.img_tab_long);
+                checkShortOrLongAndAllTouch();
+                setTabItem();
             }
         });
 
@@ -145,17 +219,17 @@ public class FragmentChooseStock extends BaseFragment implements MyUtils1.OnData
                         binding.tableLayoutMiddle.setVisibility(View.VISIBLE);
                         break;
                     case 1:
-                        data.setStrategy("長抱");
+                        data.setStrategy(!img_tab_click_status ? "長抱" : "盤中弱勢");
                         checkTimeAndShowData(data.getStrategy(),"");
                         binding.tableLayoutMiddle.setVisibility(View.GONE);
                         break;
                     case 2:
-                        data.setStrategy("盤中強勢");
+                        data.setStrategy(!img_tab_click_status ? "盤中強勢" : "盤中排行");
                         checkTimeAndShowData(data.getStrategy(),"");
                         binding.tableLayoutMiddle.setVisibility(View.GONE);
                         break;
                     case 3:
-                        data.setStrategy("盤中排行");
+                        data.setStrategy(!img_tab_click_status ? "盤中排行" : "一點鐘");
                         checkTimeAndShowData(data.getStrategy(),"");
                         binding.tableLayoutMiddle.setVisibility(View.GONE);
                         break;
@@ -179,11 +253,19 @@ public class FragmentChooseStock extends BaseFragment implements MyUtils1.OnData
 
                 switch (position){
                     case 0:
-                        data.setStrategy_1("頭高底高");
+                        data.setStrategy_1(!img_tab_click_status ? "頭高底高" : "頭低底低");
                         checkTimeAndShowData(data.getStrategy(), data.getStrategy_1());
                         break;
                     case 1:
-                        data.setStrategy_1("回後進場");
+                        data.setStrategy_1(!img_tab_click_status ? "回後準進場" : "彈後準進場");
+                        checkTimeAndShowData(data.getStrategy(), data.getStrategy_1());
+                        break;
+                    case 2:
+                        data.setStrategy_1(!img_tab_click_status ? "起漲策略" : "起跌策略");
+                        checkTimeAndShowData(data.getStrategy(), data.getStrategy_1());
+                        break;
+                    case 3:
+                        data.setStrategy_1(!img_tab_click_status ? "雙線黃金交叉" : "雙線死亡交叉");
                         checkTimeAndShowData(data.getStrategy(), data.getStrategy_1());
                         break;
                 }
@@ -228,10 +310,14 @@ public class FragmentChooseStock extends BaseFragment implements MyUtils1.OnData
             public void onTabReselected(TabLayout.Tab tab) {}
         });
 
-        adjustUiSize();
-        MyUtils1.setOnDataUpdateListener(this);
+    }
 
-        return view;
+    private void checkShortOrLongAndAllTouch() {
+        if (img_tab_click_status) binding.imgTab.setImageResource(R.mipmap.img_tab_short);
+        else binding.imgTab.setImageResource(R.mipmap.img_tab_long);
+
+        if (all_touch_status)binding.allTouchTv.setBackgroundColor(getResources().getColor(R.color.primary1));
+        else binding.allTouchTv.setBackgroundColor(getResources().getColor(R.color.matching1_2));
     }
 
     //========================================================
@@ -296,7 +382,9 @@ public class FragmentChooseStock extends BaseFragment implements MyUtils1.OnData
         int screenWidth = displayMetrics.widthPixels;
         float textSize2 = (float) screenWidth / 25;
 
-        binding.textViewCloseTime.setTextSize(TypedValue.COMPLEX_UNIT_PX,textSize2);
+        // Resize TextViews
+        binding.textViewCloseTime.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize2);
+        binding.textViewSelect.setTextSize(TypedValue.COMPLEX_UNIT_PX, Utils.dp2px(mContext, 22));
     }
 
     //==========================================================
@@ -373,14 +461,19 @@ public class FragmentChooseStock extends BaseFragment implements MyUtils1.OnData
     //==========================================================
     //檢查現在時間和去Api拿取資料
     private void checkTimeAndShowData(String strategy,String strategy_1) {
-        myUtils1.callStrategyApi(strategy,strategy_1,getActivity());
+
+        if ("起漲策略".equals(strategy_1) || "雙線黃金交叉".equals(strategy_1) || "盤中強勢".equals(strategy) || "盤中排行".equals(strategy) || "一點鐘".equals(strategy)
+        || "起跌策略".equals(strategy_1) || "雙線死亡交叉".equals(strategy_1) || "盤中弱勢".equals(strategy)) binding.allTouchTv.setVisibility(View.VISIBLE);
+        else binding.allTouchTv.setVisibility(View.GONE);
+
+        myUtils1.callStrategyApi(img_tab_click_status, strategy, strategy_1, getActivity());
     }
 
     //==========================================================
     //讀取策略token
     @Override
     public void getTokenComplete() {
-        myUtils1.callStrategyApi(data.getStrategy(), data.getStrategy_1(), getActivity());
+        myUtils1.callStrategyApi(img_tab_click_status, data.getStrategy(), data.getStrategy_1(), getActivity());
     }
 
     //==========================================================
@@ -398,9 +491,7 @@ public class FragmentChooseStock extends BaseFragment implements MyUtils1.OnData
             if (!checkFilterSort())sortFilter(symbolsList);
             binding.recyclerViewSelect.setAdapter(adapter);
 
-            if (recyclerViewState != null) {
-                layoutManager.onRestoreInstanceState(recyclerViewState);
-            }
+            if (recyclerViewState != null) layoutManager.onRestoreInstanceState(recyclerViewState);
 
             String priceFilter = data.getPriceFilter();
             if (!"全部".equals(priceFilter)) sortPriceFilter(priceFilter);
@@ -417,7 +508,7 @@ public class FragmentChooseStock extends BaseFragment implements MyUtils1.OnData
             int dayOfWeek = taiwanCalendar.get(Calendar.DAY_OF_WEEK);
             String strategy = data.getStrategy();
 
-            if ("盤中強勢".equals(strategy) && dayOfWeek != Calendar.SATURDAY && dayOfWeek != Calendar.SUNDAY && (hourOfDay < 9 || (hourOfDay == 9 && minute < 30))){
+            if (("盤中強勢".equals(strategy) || "盤中弱勢".equals(strategy)) && dayOfWeek != Calendar.SATURDAY && dayOfWeek != Calendar.SUNDAY && (hourOfDay < 9 || (hourOfDay == 9 && minute < 30))){
                 binding.imageViewCloseTIme.setVisibility(View.VISIBLE);
                 binding.textViewCloseTime.setVisibility(View.VISIBLE);
                 binding.textViewCloseTime.setText("盤中強勢策略\n啓動時間\n09:30~13:30");
@@ -439,9 +530,7 @@ public class FragmentChooseStock extends BaseFragment implements MyUtils1.OnData
             }
         }
 
-        if (loadingDialog != null) {
-            loadingDialog.hideDialog();
-        }
+        if (loadingDialog != null) loadingDialog.hideDialog();
     }
 
     //==========================================================
@@ -453,9 +542,7 @@ public class FragmentChooseStock extends BaseFragment implements MyUtils1.OnData
                 handler = null;
             }
 
-            if (handler == null) {
-                handler = new Handler();
-            }
+            if (handler == null) handler = new Handler();
 
             handler.postDelayed(new Runnable() {
                 @Override
@@ -467,7 +554,6 @@ public class FragmentChooseStock extends BaseFragment implements MyUtils1.OnData
                         System.out.println("TestXuan:Refresh");
                         checkTimeAndShowData(strategy, strategy_1);
                     }
-
                     handler.postDelayed(this, REFRESH_INTERVAL);
                 }
             }, REFRESH_INTERVAL);
@@ -477,9 +563,7 @@ public class FragmentChooseStock extends BaseFragment implements MyUtils1.OnData
     //==========================================================
     //價格篩選
     @Override
-    public void updatePriceFilter(HashMap<String, Double> priceFilter) {
-        this.priceFilterHaspMap = priceFilter;
-    }
+    public void updatePriceFilter(HashMap<String, Double> priceFilter) { this.priceFilterHaspMap = priceFilter; }
 
     //==========================================================
 
@@ -511,23 +595,19 @@ public class FragmentChooseStock extends BaseFragment implements MyUtils1.OnData
     public void onResume() {
         super.onResume();
 
-        loadingDialog = new LoadingDialog(mContext);
+        checkShortOrLongAndAllTouch();
+        setTabItem();
+        refreshTabPosition(binding.tabLayoutDown, tabDownItem, data.getPriceFilter());
 
+        loadingDialog = new LoadingDialog(mContext);
         if (loadingDialog != null && !loadingDialog.isShowing()) loadingDialog.showDialog();
 
         if (data.getTokenStrategy().isEmpty()) myUtils1.getStrategyToken(mContext);
-        else myUtils1.callStrategyApi(data.getStrategy(), data.getStrategy_1(), getActivity());
+    }
 
-        int index = myUtils1.findTabItemIndex(data.getStrategy(),tabUpItem);
-        TabLayout.Tab tabUp = binding.tabLayoutUp.getTabAt(index);
-        tabUp.select();
-
-        index = myUtils1.findTabItemIndex(data.getStrategy_1(),tabMidItem);
-        TabLayout.Tab tabMid = binding.tableLayoutMiddle.getTabAt(index);
-        tabMid.select();
-
-        index = myUtils1.findTabItemIndex(data.getPriceFilter(),tabDownItem);
-        TabLayout.Tab tabDown = binding.tabLayoutDown.getTabAt(index);
-        tabDown.select();
+    private void refreshTabPosition(TabLayout tabLayout, String[] tabItem, String findItem) {
+        int index = myUtils1.findTabItemIndex(findItem, tabItem);
+        TabLayout.Tab tab = tabLayout.getTabAt(index);
+        tab.select();
     }
 }
