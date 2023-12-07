@@ -10,6 +10,7 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.Header;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
+import retrofit2.http.Url;
 
 public interface MyApi {
     @FormUrlEncoded
@@ -67,6 +68,7 @@ public interface MyApi {
     @POST("api/logic/strategy/N201")
     Single<ResponseBody> 一點鐘_空(@Body RequestBody var1, @Header("accept") String var0, @Header("Authorization") String authorization);
 
-
+    @POST
+    Single<ResponseBody> 操盤綫_趨勢綫(@Url String url, @Body RequestBody var1, @Header("accept") String var0, @Header("Authorization") String authorization);
 }
 

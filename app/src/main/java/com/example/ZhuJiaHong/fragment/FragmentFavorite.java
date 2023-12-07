@@ -15,7 +15,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import com.example.ZhuJiaHong.R;
 import com.example.ZhuJiaHong.Util.AppUtil;
+import com.example.ZhuJiaHong.Util.Data;
+import com.example.ZhuJiaHong.Util.MAData;
 import com.example.ZhuJiaHong.Util.MyUtils1;
+import com.example.ZhuJiaHong.domain.RxStrategyHttpClient.MyApi;
+import com.example.ZhuJiaHong.domain.RxStrategyHttpClient.RxStrategyHttpClient;
 import com.example.ZhuJiaHong.model.Filter;
 import com.example.ZhuJiaHong.object.favourite.FavoriteViewHolder;
 import com.example.ZhuJiaHong.object.favourite.MyBaseFavoriteFragment;
@@ -40,7 +44,14 @@ import com.mdbs.starwave_meta.params.RFOwlData;
 import com.mdbs.starwave_meta.params.RFStock0Data;
 import com.mdbs.starwave_meta.tools.WhenDispose;
 import com.mdbs.starwave_meta.tools.methods.Method0;
+import com.uber.autodispose.AutoDispose;
+import com.uber.autodispose.android.lifecycle.AndroidLifecycleScopeProvider;
+
+import org.apache.commons.text.StringEscapeUtils;
 import org.jetbrains.annotations.NotNull;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -53,6 +64,7 @@ import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.functions.Consumer;
 import io.reactivex.internal.functions.Functions;
 import io.reactivex.schedulers.Schedulers;
+import okhttp3.RequestBody;
 
 @interface DisplayMode {
 
@@ -70,10 +82,11 @@ public class FragmentFavorite extends MyBaseFavoriteFragment {
     private CompositeDisposable disposes;
     public StockAdapter mAdapter;
     private RFStock0Data mRFStock0Data;
-    private final LinkedList<String> mDisplayModes = new LinkedList<>(Arrays.asList(DisplayMode.NORMAL, DisplayMode.TREND));
+    private final LinkedList<String> mDisplayModes = new LinkedList<>(Arrays.asList(DisplayMode.TREND, DisplayMode.NORMAL));
     final CompositeDisposable mDataRequiredDisposes = new CompositeDisposable();
     final MyDataSourceRequired mDataRequired = new MyDataSourceRequired();
-    private MyUtils1 myUtils1 = new MyUtils1();
+    private final MyApi strategyApi = RxStrategyHttpClient.getInstance().getStrategyApi();
+    private Data data = new Data();
 
     //================================================
 
@@ -109,6 +122,13 @@ public class FragmentFavorite extends MyBaseFavoriteFragment {
                 FavoriteViewHolder viewHolder = (FavoriteViewHolder) baseRecycleLayout;
                 viewHolder.disposes.clear();
 
+                if (DisplayMode.TREND.equals(mDisplayModes.getFirst())) {
+                    viewHolder.binding.constraintLayout2.setVisibility(View.VISIBLE);
+                }
+                else {
+                    viewHolder.binding.constraintLayout2.setVisibility(View.GONE);
+                }
+
                 topicStock(productSymbol, viewHolder);
                 viewHolder.initValue(productSymbol);
             }
@@ -132,6 +152,8 @@ public class FragmentFavorite extends MyBaseFavoriteFragment {
         if (mWebsocketGetter == null) return;
 
         FavoriteViewHolder viewHolder = (FavoriteViewHolder) holder;
+        // 構建請求體
+        RequestBody requestBody = RequestBody.create(null, new byte[0]); // 如果不需要請求體，可以使用這種方式
 
         viewHolder.disposes.addAll(
                 mWebsocketGetter.StarwaveServiceLatest(service -> service.stock0(symbol))
@@ -177,32 +199,68 @@ public class FragmentFavorite extends MyBaseFavoriteFragment {
                                 viewHolder.binding.customPercentView.setVisibility(View.VISIBLE);
                             }
 
-                        }, Throwable::printStackTrace)
-        );
+                        }, Throwable::printStackTrace),
+                RxPollings.trend(symbol)
+                        .map(payload -> AppUtil.export(payload, "日期", "股票代號", "開盤價", "最高價", "最低價", "收盤價", "成交量", "平均價"))
+                        .compose(TransformerHolder.applyFlowableScheduler())
+                        .as(WhenDispose.autoFocus(getViewLifecycleOwner()))
+                        .subscribe(new Consumer<RFOwlData>() {
+                            @Override
+                            public void accept(RFOwlData rfOwlData) throws Exception {
 
-        if (viewHolder.isTrendMode()) {
+                                if (null != mRFStock0Data && mRFStock0Data.試撮) {
 
-            viewHolder.disposes.addAll(
-                    RxPollings.trend(symbol)
-                            .map(payload -> AppUtil.export(payload, "日期", "股票代號", "開盤價", "最高價", "最低價", "收盤價", "成交量", "平均價"))
-                            .compose(TransformerHolder.applyFlowableScheduler())
-                            .as(WhenDispose.autoFocus(getViewLifecycleOwner()))
-                            .subscribe(new Consumer<RFOwlData>() {
-                                @Override
-                                public void accept(RFOwlData rfOwlData) throws Exception {
+                                    viewHolder.binding.trendView.setItemOwlData(null);
 
-                                    if (null != mRFStock0Data && mRFStock0Data.試撮) {
+                                } else {
 
-                                        viewHolder.binding.trendView.setItemOwlData(null);
-
-                                    } else {
-
-                                        viewHolder.binding.trendView.setItemOwlData(rfOwlData);
-                                    }
+                                    viewHolder.binding.trendView.setItemOwlData(rfOwlData);
                                 }
-                            })
-            );
+                            }
+                        }),
+                strategyApi.操盤綫_趨勢綫("api/ma/8/"+symbol.no,requestBody,"*/*","Bearer "+data.getTokenStrategy())
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .as(AutoDispose.autoDisposable(AndroidLifecycleScopeProvider.from(getViewLifecycleOwner())))
+                        .subscribe(
+                                response -> {
+                                    String responseData = response.string();
+                                    String utf8String = StringEscapeUtils.unescapeJava(responseData);
+                                    List<MAData> maDataList = parseMAData(utf8String);
+                                }
+                        ),
+                strategyApi.操盤綫_趨勢綫("api/ma/22/"+symbol.no,requestBody,"*/*","Bearer "+data.getTokenStrategy())
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .as(AutoDispose.autoDisposable(AndroidLifecycleScopeProvider.from(getViewLifecycleOwner())))
+                        .subscribe(
+                                response -> {
+                                    String responseData = response.string();
+                                    String utf8String = StringEscapeUtils.unescapeJava(responseData);
+                                    List<MAData> maDataList = parseMAData(utf8String);
+                                }
+                        )
+        );
+    }
+
+    private List<MAData> parseMAData(String utf8String) {
+        List<MAData> maDataList = new ArrayList<>();
+
+        try {
+            JSONArray dataArray = new JSONArray(utf8String);
+
+            for (int i = 0; i < dataArray.length(); i++) {
+                JSONObject entry = dataArray.getJSONObject(i);
+                String date = entry.getString("date");
+                String ma = entry.getString("ma");
+
+                MAData maData = new MAData(date, ma);
+                maDataList.add(maData);
+            }
         }
+        catch (JSONException e) {e.printStackTrace();}
+
+        return maDataList;
     }
 
     @Override
@@ -400,11 +458,11 @@ public class FragmentFavorite extends MyBaseFavoriteFragment {
 
             case DisplayMode.TREND: {
 
-                return R.mipmap.page_btn_up;
+                return R.mipmap.page_btn_up_on;
             }
             default: {
 
-                return R.mipmap.page_btn_up_on;
+                return R.mipmap.page_btn_up;
             }
         }
     };

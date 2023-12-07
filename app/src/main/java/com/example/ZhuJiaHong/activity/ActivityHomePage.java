@@ -6,6 +6,7 @@ import android.view.View;
 import androidx.lifecycle.Lifecycle;
 
 import com.example.ZhuJiaHong.AppApplication;
+import com.example.ZhuJiaHong.Util.Data;
 import com.example.ZhuJiaHong.Util.MyUtils1;
 import com.example.ZhuJiaHong.domain.Future;
 import com.example.ZhuJiaHong.object.HomePage;
@@ -22,13 +23,14 @@ import java.util.List;
 
 public class ActivityHomePage extends ActivityHomePageBase {
     private MyUtils1 myUtils1 = new MyUtils1();
+    private Data data = new Data();
 
     @Override
     protected BaseHomePage createHomePage() {
 
         //期貨
         callFuture();
-        myUtils1.getStrategyToken(getApplicationContext());
+        if (data.getTokenStrategy().isEmpty()) myUtils1.getStrategyToken(getApplicationContext());
 
         return new HomePage(this);
     }

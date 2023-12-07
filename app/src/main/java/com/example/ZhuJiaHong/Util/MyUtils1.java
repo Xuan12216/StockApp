@@ -12,6 +12,9 @@ import com.mdbs.starwave_meta.common.stock.ProductSymbol;
 import com.mdbs.starwave_meta.common.stock.StockInfoLoader;
 import com.mdbs.starwave_meta.network.rxhttp.RxOwlHttpClient;
 import com.mdbs.starwave_meta.params.RFQuoteField;
+import com.uber.autodispose.AutoDispose;
+import com.uber.autodispose.android.lifecycle.AndroidLifecycleScopeProvider;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -74,6 +77,7 @@ public class MyUtils1{
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .retry()
+                .as(AutoDispose.autoDisposable(AndroidLifecycleScopeProvider.from(activity)))
                 .subscribe(
                         response -> {
                             String responseData = response.string();
@@ -306,7 +310,6 @@ public class MyUtils1{
 
         return  convertList;
     }
-
 
     //===================================================
     //Handler And Disposable Cancel
