@@ -184,4 +184,363 @@
     <color name="sort_text">#3F3F3F</color>
     <color name="sort_bg">#DACCB6</color>
 
+
+    <!---->
+
+    <!--所有漲價格改吃此顏色設定，預設為#FF3030-->
+    <color name="rise_color">#E13B3B</color>
+    <!--所有跌價格改吃此顏色設定，預設為#31A931-->
+    <color name="fall_color">#31A931</color>
+    <!--所有平盤改吃此顏色設定，預設為#FFFFFF-->
+    <color name="reference_color">#FFFFFF</color>
+    <!--個股五檔價格=現價時底線顏色-->
+    <color name="under_line_color">#000000</color>
+    <!--產業群小報價均價線顏色-->
+    <color name="avgline">#000000</color>
+    <!--個股上方報價區總量、昨收、更新色、委買委賣量文字顏色-->
+
+    <!--個股上方_資源-->
+    <color name="try_color">#EFCF99</color>
+    <color name="stock_try_color">#3F3F3F</color>
+    <color name="infotextcolor">#866C45</color>
+    <color name="price_def">#866C45</color>
+    <color name="tab_focus_bg">#866C45</color>
+    <color name="tab_focus">#FFFFFF</color>
+    <color name="tab_nonFocus">#979797</color>
+    <color name="stock_industry">#3F3F3F</color>
+
+    <!--個股_即時-->
+    <color name="timecolor">#3F3F3F</color>
+    <color name="info_time_color">#F8C91C</color>
+    <color name="info_price_color">#3F3F3F</color>
+    <color name="focus_line">#3F3F3F</color>
+    <color name="expected_line">#3F3F3F</color>
+    <color name="five_divider">#CDCDCD</color>
+    <color name="favorite_overview_amount">#1F21FF</color>
+    <color name="favorite_overview_rise1_text">#00F1B9B9</color>
+    <color name="favorite_overview_rise2_text">#00FF9E9E</color>
+    <color name="favorite_overview_fall1_text">#0000FF00</color>
+    <color name="favorite_overview_fall2_text">#00000000</color>
+    <color name="percent_null">#AFAFAF</color>
+
+    <!--個股_大戶買賣力-->
+    <color name="largeRetail_rect_bg">#EBE8E3</color>
+    <color name="largeRetail_rect_title">#3F3F3F</color>
+    <color name="largeRetail_piece">#3F3F3F</color>
+    <color name="largeRetail_line">#DAD0C1</color>
+
+    <!--個股_價量_分價量-->
+    <color name="volume_bg">#EBE8E3</color>
+    <color name="volume_focus">#3F3F3F</color>
+    <color name="volume_nonFocus">#3F3F3F</color>
+    <color name="tickAmount_one">#9ED5DD</color>
+    <color name="tickAmount_nday">#EFCF99</color>
+    <color name="tickAmount_focus_one">#59B7C5</color>
+    <color name="tickAmount_focus_nday">#F8BC56</color>
+    <color name="tickAmount_title_text">#866C45</color>
+    <color name="tickAmount_text">#3F3F3F</color>
+    <color name="tickAmount_info_bg">#DAD0C1</color>
+
+    <!--個股_價量_分價比-->
+    <color name="volume2_bar_bg">#DACCB6</color>
+    <color name="volume2_bar_text">#3F3F3F</color>
+    <color name="volume2_amount_text">#3F3F3F</color>
+    <color name="volume2_amount">#EFCF99</color>
+    <color name="volume2_per_text">#3F3F3F</color>
+    <color name="stock_text_open">#3F3F3F</color>
+    <color name="stock_text_now">#866C45</color>
+
+    <!--個股_K線-->
+    <color name="ktab_focus_bg">#292B32</color>
+    <color name="ktab_focus">#FFFFFF</color>
+    <color name="ktab_nonFocus">#787D8A</color>
+    <color name="ktab_focus_underline">#FFFFFF</color>
+    <color name="kfocus_line">#FFFFFF</color>
+    <color name="k_checkbox_focus">#3F3F3F</color>
+    <color name="k_checkbox_nonFocus">#3F3F3F</color>
+
+    <!--個股_籌碼-->
+    <color name="chip_tab_bg">#33353E</color>
+    <color name="chip_tab_focus">#FFFFFF</color>
+    <color name="chip_tab_nonFocus">#777C89</color>
+    <color name="chip_day_tab_bg">#292B32</color>
+    <color name="chip_day_tab_focus">#FFFFFF</color>
+    <color name="chip_day_tab_nonFocus">#787D8A</color>
+    <color name="chip_header_text">#FFFFFF</color>
+    <color name="chip_sellbuy_circle_bg">#FFFFFF</color>
+    <color name="chip_date_range">#FFFFFF</color>
+    <color name="chip_text">#FFFFFF</color>
+    <color name="chip_date_bg">#FFFFFF</color>
+    <color name="chip_edit_bg">#FFFFFF</color>
+    <color name="chip_edit_text">#FFFFFF</color>
+    <color name="chip_pie_over_bg">#484848</color>
+    <color name="chip_pie_trust_over_buy">#CD5207</color>
+    <color name="chip_pie_trust_over_sell">#03A209</color>
+    <color name="chip_pie_foreign_over_buy">#F19655</color>
+    <color name="chip_pie_foreign_over_sell">#A2D90D</color>
+    <color name="chip_pie_self_over_buy">#FFAA06</color>
+    <color name="chip_pie_self_over_sell">#DEEB1C</color>
+    <color name="chip_pie_inside_bg">#000000</color>
+    <color name="chip_point_header">#24262D</color>
+    <color name="chip_band">#88772C</color>
+    <color name="chip_brokerage_bg">#494949</color>
+    <color name="chip_brokerage_text">#FFFFFF</color>
+    <color name="chip_info_title">#FFFFFF</color>
+    <color name="chip_info_content">#FFFFFF</color>
+    <color name="chip_buy_text">#FF3030</color>
+    <color name="chip_sell_text">#31A931</color>
+    <!--    <color name="chip_sell_circle_bg">#000031</color>--> <!--沒有設定以chip_sellbuy_circle_bg為主-->
+    <!--    <color name="chip_buy_circle_bg">#0000FF</color>--> <!--沒有設定以chip_sellbuy_circle_bg為主-->
+
+    <!--個股_分點-->
+    <color name="point_bg">#FFFFFF</color>
+    <color name="point_brokerage_text">#000000</color>
+    <color name="point_date_bg">#FFFFFF</color>
+    <color name="point_date_focus">#000000</color>
+    <color name="point_date_nonFocus">#5b5b5b</color>
+    <color name="point_sellbuy_bg">#000000</color>
+    <color name="point_sellbuy_focus">#FFFFFF</color>
+    <color name="point_sellbuy_nonFocus">#717171</color>
+    <color name="point_header_bg">#888888</color>
+    <color name="point_header_text">#FFFFFF</color>
+    <color name="point_divide">#282828</color>
+
+    <!--個股_基本-->
+    <color name="detail_subtitle_bg">#878787</color>
+    <color name="detail_content_bg">#000000</color>
+    <color name="detail_text_color">#FFFFFF</color>
+    <color name="detail_bg_color">#FFFFFF</color>
+
+    <!--個股_日曆-->
+    <color name="stock_calendar_now">#FFFFFF</color>
+    <color name="stock_calendar_old">#4F4F4F</color>
+    <color name="stock_content_bg">#000000</color>
+    <color name="stock_subtitle_bg">#3D404A</color>
+    <color name="stock_subtitle_text">#FFFFFF</color>
+
+    <!--個股_新聞-->
+    <color name="news_bg">#000000</color>
+    <color name="news_head">#878787</color>
+    <color name="news_date">#FFFFFF</color>
+    <color name="news_content">#FFFFFF</color>
+    <color name="news_line">#282828</color>
+    <color name="news_button_txt">#FFFFFF</color>
+    <color name="news_button_tint">#282828</color>
+
+    <!--個股_董監-->
+    <color name="supervisor_content_bg">#000000</color>
+    <color name="supervisor_subtitle_bg">#24262D</color>
+    <color name="supervisor_subtitle_text">#FFFFFF</color>
+    <color name="supervisor_item_key">#FFFFFF</color>
+    <color name="supervisor_item_value">#FFFFFF</color>
+    <color name="supervisor_item_percent">#FFFFFF</color>
+    <color name="supervisor_other">#029899</color>
+    <color name="supervisor_self">#D4B871</color>
+    <color name="supervisor_trust">#85A5C9</color>
+    <color name="supervisor_foreign">#4C6281</color>
+    <color name="supervisor_director">#00FFFFFF</color>
+    <color name="supervisor_financing">#00FFFFFF</color>
+
+    <!--個股_主力-->
+    <color name="major_tabbar_bg">#33353E</color>
+    <color name="major_tabbar_focus">#FFFFFF</color>
+    <color name="major_tabbar_nonFocus">#777D8B</color>
+    <color name="major_text">#FFFFFF</color>
+    <color name="major_header_bg">#24262D</color>
+    <color name="major_header_text">#FFFFFF</color>
+    <color name="major_table_divider">#3C3C3C</color>
+    <color name="major_paint_divider">#3C3C3C</color>
+    <color name="major_paint_focusX">#FFFFFF</color>
+    <color name="major_paint_disable">#363636</color>
+    <color name="major_paint_stockPrice">#F8C91C</color>
+    <color name="major_paint_five">#2C90CB</color>
+    <color name="major_paint_twenty">#AE87FF</color>
+    <color name="major_paint_info_title">#FFFFFF</color>
+    <color name="major_paint_info_bg">#E6242220</color>
+    <color name="major_paint_date_bg">#F8C91C</color>
+    <color name="major_paint_date_text">#000000</color>
+
+    <!--個股_功能排序-->
+    <color name="stock_setting_content_text">#000000</color>
+    <color name="stock_setting_divider">#DAD0C1</color>
+    <color name="stock_setting_grid_text">#866C45</color>
+
+    <!--大盤價量_即時圖-->
+    <color name="exchange_overview_fall1_text">#31A931</color>
+    <color name="exchange_overview_fall2_text">#00D2EAA6</color>
+    <color name="exchange_overview_rise1_text">#00FF4A4A</color>
+    <color name="exchange_overview_rise2_text">#FF3030</color>
+    <color name="exchange_overview_amount">#1F21FF</color>
+    <color name="trend_reference_bg">#F8C91C</color>
+
+    <!--大盤趨勢即時線圖-->
+    <color name="taiex_trend_text">#FFFFFF</color>
+    <color name="taiex_trend_divider">#282828</color>
+    <color name="taiex_trend_relative_line">#FFFFFF</color>
+    <color name="taiex_trend_relative_start">#292929</color>
+    <color name="taiex_trend_relative_end">#00000000</color>
+    <color name="taiex_trend_rise_end">#00FFA73F</color> <!--漸層結束-->
+    <color name="taiex_trend_fall_end">#009D9D9D</color> <!--漸層結束-->
+    <color name="taiex_trend_amount">#1F21FF</color>
+
+    <!--大盤排行-->
+    <color name="taiex_rank_no">#F8C91C</color>
+    <color name="taiex_rank_divider">#4A4A4A</color>
+    <color name="taiex_rank_stockName">#FFFFFF</color>
+    <color name="taiex_rank_stockNo">#FFFFFF</color>
+
+    <!--大盤產業分佈-->
+    <color name="taiex_distribution_title_text">#FFFFFF</color>
+    <color name="taiex_distribution_title_bg">#3D404A</color>
+    <color name="taiex_distribution_content_bg">#000000</color>
+    <color name="taiex_distribution_content_text">#ffffff</color>
+
+    <!--大盤漲跌家數-->
+    <color name="taiex_updown_divider">#4A4A4A</color>
+    <color name="taiex_updown_text">#FFFFFF</color>
+    <color name="taiex_updown_title_text">#FFFFFF</color>
+    <color name="taiex_updown_title_bg">#000000</color>
+
+    <!--大盤新聞-->
+    <color name="twse_news_bg">#33353E</color>
+    <color name="twse_news_datetime">#FFFFFF</color>
+    <color name="twse_news_text">#FFFFFF</color>
+    <color name="twse_news_url">#AAAEB9</color>
+
+    <!--產業多空-->
+    <color name="industry_text">#FFFFFF</color>
+
+    <!--產業個股列表-->
+    <color name="stock_industry_name">#E6E6E6</color>
+    <color name="stock_industry_no">#E6E6E6</color>
+    <color name="stock_industry_amount">#B5B5B5</color>
+
+    <!--法人動向-->
+    <color name="investor_type_text_click">#FFFFFF</color>
+    <color name="investor_type_text_unclick">#000000</color>
+    <color name="investor_type_bg_click">#787D8A</color>
+    <color name="investor_type_bg_unclick">#5A5D65</color>
+    <color name="investor_day_bg">#292B32</color>
+    <color name="investor_day_click">#FFFFFF</color>
+    <color name="investor_day_unclick">#4F5051</color>
+    <color name="investor_datetime">#FFFFFF</color>
+    <color name="investor_stock_name">#FFFFFF</color>
+    <color name="investor_stock_no">#FFFFFF</color>
+    <color name="investor_list_divider">#282828</color>
+
+    <!--漲跌家數-->
+    <color name="updown_switch_text_focus">#FFFFFF</color>
+    <color name="updown_switch_text_nonFocus">#818181</color>
+    <color name="updown_switch_bg">#33353E</color>
+    <color name="updown_switch_bg_focus">#6A6B72</color>
+    <color name="updown_tab_bg">#33353E</color>
+    <color name="updown_tab_focus">#FFFFFF</color>
+    <color name="updown_tab_nonFocus">#787D8A</color>
+
+    <!--3種TabBar類型設定 -->
+    <color name="type1_tab_bg">#33353E</color>
+    <color name="type1_tab_line">#004F4F4F</color>
+    <color name="type1_tab_text_click">#FFFFFF</color>
+    <color name="type1_tab_text_unclick">#787D8A</color>
+
+    <color name="type2_tab_bg">#000000</color>
+    <color name="type2_tab_text_click">#F8C91C</color>
+    <color name="type2_tab_text_unclick">#A0A3A8</color>
+
+    <color name="type3_tab_bg">#33353E</color>
+    <color name="type3_tab_line">#00FFFFFF</color>
+    <color name="type3_tab_text_click">#FFFFFF</color>
+    <color name="type3_tab_text_unclick">#787D8A</color>
+
+    <!--產業分佈列表-->
+    <color name="distribution_tabbar_bg">#33353E</color>
+    <color name="distribution_tabbar_focus">#FFFFFF</color>
+    <color name="distribution_tabbar_nonFocus">#787D8A</color>
+    <color name="distribution_sort_bg">#24262D</color>
+    <color name="distribution_text">#FFFFFF</color>
+    <color name="distribution_line">#282828</color>
+
+    <!--小台散戶多空比-->
+    <color name="txf_chart_title_text">#FFFFFF</color>
+    <color name="txf_chart_price">#FFFFFF</color>
+    <color name="txf_chart_percent">#FFFFFF</color>
+    <color name="txf_chart_date">#FFFFFF</color>
+    <color name="txf_chart_bg_line">#282828</color>
+    <color name="txf_chart_trend_line">#FFDD00</color>
+
+    <!--行事曆-->
+    <color name="calendar_date_bg">#33353E</color>
+    <color name="calendar_date_focus">#FFFFFF</color>
+    <color name="calendar_date_nonfocus">#787D8A</color>
+    <color name="calendar_type_bg">#0016171C</color>
+    <color name="calendar_type_focus">#FFFFFF</color>
+    <color name="calendar_type_nonfocus">#979797</color>
+    <color name="calendar_stock">#FFFFFF</color>
+    <color name="calendar_industry">#979797</color>
+    <color name="calendar_info">#FFFFFF</color>
+    <color name="calendar_amount">#FFFFFF</color>
+
+    <!--大盤趨勢法人佈局-->
+    <color name="corporation_title_bg">#3D404A</color>
+    <color name="corporation_title_text">#FFFFFF</color>
+    <color name="corporation_header_bg">#000000</color>
+    <color name="corporation_grid_number">#F8C91C</color>
+    <color name="corporation_grid_stockName">#FFFFFF</color>
+    <color name="corporation_grid_stockNo">#979797</color>
+    <color name="corporation_grid_divider">#4A4A4A</color>
+
+    <!--法人佈局內頁-->
+    <color name="corporation_all_tabbar_bg">#33353E</color>
+    <color name="corporation_all_tabbar_focus">#FFFFFF</color>
+    <color name="corporation_all_tabbar_nonFocus">#787D8A</color>
+    <color name="corporation_all_header_bg">#24262D</color>
+    <color name="corporation_all_header_text">#FFFFFF</color>
+    <color name="corporation_all_item_bg">#000000</color>
+    <color name="corporation_all_item_text">#FFFFFF</color>
+
+    <!--分點戰報-->
+    <color name="chip_find_broker_stroke">#FFFFFF</color>
+    <color name="chip_tabbar_text_focus">#FFFFFF</color>
+    <color name="chip_tabbar_text_nonfocus">#525353</color>
+    <color name="chip_tabbar_bg_focus">#1F2127</color>
+    <color name="chip_tabbar_bg_nonfocus">#1F2127</color>
+    <color name="chip_tabbar_bg">#1F2127</color>
+    <!--下拉方匡-->
+    <color name="chip_select_rect_bg">#000000</color>
+    <color name="chip_select_rect_stroke">#FFFFFF</color>
+    <color name="chip_select_bg">#000000</color>
+    <color name="chip_select_text">#FFFFFF</color>
+    <color name="chip_grid_text">#ffffff</color>
+    <color name="chip_grid_bg">#484C5A</color>
+    <!--日數-->
+    <color name="chip_days_bg">#33353E</color>
+    <color name="chip_days_focus_bg">#FFFFFF</color>
+    <color name="chip_days_nonfocus_bg">#787D8A</color>
+    <!--排序-->
+    <color name="chip_filter_bg">#24262D</color>
+    <color name="chip_filter_text">#FFFFFF</color>
+    <color name="chip_content_line">#454545</color>
+
+    <color name="chip_content_bg">#000000</color>
+    <color name="chip_content_k_right_txt">#FFFFFF</color>
+    <color name="chip_content_k_line">#282828</color>
+    <color name="chip_content_k_ref">#FFFFFF</color>
+    <color name="chip_content_k_broker">#FFFFFF</color>
+    <color name="chip_content_k_time">#FFFFFF</color>
+    <color name="chip_content_k_round">#FFFFFF</color>
+
+    <color name="chip_search_title">#FFFFFF</color>
+    <color name="chip_search_rect_bg">#000000</color>
+    <color name="chip_search_rect_stroke">#FFFFFF</color>
+    <color name="chip_search_text">#FFFFFF</color>
+    <color name="chip_search_dropdown_bg">#000000</color>
+    <color name="chip_search_near_bg">#3D404A</color>
+    <color name="chip_search_near_text">#FFFFFF</color>
+
+    <color name="chip_top10_broker_name_bg">#3D404A</color>
+    <color name="chip_top10_broker_name_text">#FFFFFF</color>
+    <color name="chip_top10_content_bg">#000000</color>
+    <color name="chip_top10_filter_bg">#24262D</color>
+
+    <color name="dialog_point_color">#C0D2FF</color>
 </resources>

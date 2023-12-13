@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -50,26 +51,22 @@ import io.reactivex.internal.functions.Functions;
 import mdbs.basechart.view.realtime.ModelRealTimeLine2;
 
 public class FragmentChooseStockAdapter extends RecyclerView.Adapter<FragmentChooseStockAdapter.ViewHolder> {
-    private List<String> symbolsList = new ArrayList<>();
+    private List<String> symbolsList;
     private Map<String, ProductSymbol> stockMap = StockInfoLoader.getInstance().get();
-    private HashMap<String, ViewHolder> viewHolderMap = new HashMap<>();
+    private HashMap<String, ViewHolder> viewHolderMap;
     private Context mContext;
     private WebsocketGetter mWebsocketGetter;
     private RFStock0Data mRFStock0Data;
     private List<String> listFuture = AppApplication.futureListStockNoOnly;
     private LifecycleOwner lifecycleOwner;
+    private boolean isTrendMode = true;
 
-    public FragmentChooseStockAdapter(List<String> symbolsList, Context context, WebsocketGetter websocketGetter, LifecycleOwner lifecycleOwner) {
-        this.symbolsList = new ArrayList<>(symbolsList);
+    public FragmentChooseStockAdapter(Context context, WebsocketGetter websocketGetter, LifecycleOwner lifecycleOwner) {
+        this.symbolsList = new ArrayList<>();
         this.viewHolderMap = new HashMap<>();
         this.mContext = context;
         this.mWebsocketGetter = websocketGetter;
         this.lifecycleOwner = lifecycleOwner;
-
-        for (int i = 0; i < symbolsList.size(); i++) {
-            String stockNo = symbolsList.get(i).toString();
-            viewHolderMap.put(stockNo, new ViewHolder(LayoutInflater.from(context).inflate(R.layout.item_stock_favor, null)));
-        }
     }
 
     @NonNull
@@ -96,6 +93,8 @@ public class FragmentChooseStockAdapter extends RecyclerView.Adapter<FragmentCho
             holder.stockNoTextView.setText(stockNo);
             holder.stockNameTextView.setText(stockName);
             holder.yuan_jian.setText(productSymbol.industryName);
+
+            holder.constraintLayout2.setVisibility(isTrendMode ? View.VISIBLE : View.GONE);
 
             holder.yuan_jian.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -243,14 +242,23 @@ public class FragmentChooseStockAdapter extends RecyclerView.Adapter<FragmentCho
     @Override
     public int getItemCount() {return symbolsList.size();}
 
-    public void updateSortList(List<String> symbolsList) {
-        this.symbolsList = new ArrayList<>(symbolsList);
-        this.viewHolderMap = new HashMap<>();
+    public void updateSortList(List<String> symbolsList, boolean isTrendMode) {
+        if (symbolsList == null) symbolsList = new ArrayList();
+
+        this.symbolsList = symbolsList;
+        this.isTrendMode = isTrendMode;
+        this.viewHolderMap.clear();
 
         for (int i = 0; i < symbolsList.size(); i++) {
             String stockNo = symbolsList.get(i).toString();
-            viewHolderMap.put(stockNo, new ViewHolder(LayoutInflater.from(mContext).inflate(R.layout.item_stock_favor, null)));
+            viewHolderMap.put(stockNo,null);
+            //viewHolderMap.put(stockNo, new ViewHolder(LayoutInflater.from(mContext).inflate(R.layout.item_stock_favor, null)));
         }
+        notifyDataSetChanged();
+    }
+
+    public void isShowTrendMode(boolean isTrendMode){
+        this.isTrendMode = isTrendMode;
         notifyDataSetChanged();
     }
 
@@ -261,6 +269,7 @@ public class FragmentChooseStockAdapter extends RecyclerView.Adapter<FragmentCho
         public CustomPercentView customPercentView;
         public RelativeLayout price_container;
         public ModelRealTimeLine2 trend_view;
+        public ConstraintLayout constraintLayout2;
         public CompositeDisposable disposes = new CompositeDisposable();
 
         public ViewHolder(View view) {
@@ -276,6 +285,7 @@ public class FragmentChooseStockAdapter extends RecyclerView.Adapter<FragmentCho
             customPercentView = view.findViewById(R.id.customPercentView);
             price_container = view.findViewById(R.id.price_container);
             trend_view = view.findViewById(R.id.trend_view);
+            constraintLayout2 = view.findViewById(R.id.constraintLayout2);
 
             view.setOnClickListener(new View.OnClickListener() {
                 @Override

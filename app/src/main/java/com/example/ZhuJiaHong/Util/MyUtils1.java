@@ -81,8 +81,7 @@ public class MyUtils1{
                 .subscribe(
                         response -> {
                             String responseData = response.string();
-                            String utf8String = StringEscapeUtils.unescapeJava(responseData);
-                            getSymbolData(utf8String,activity);
+                            getSymbolData(responseData,activity);
                         }
                 );
     }
@@ -122,6 +121,18 @@ public class MyUtils1{
                 return strategyApi.盤中排行_空(requestBody,"*/*",authorization);
             case "一點鐘_空":
                 return strategyApi.一點鐘_空(requestBody,"*/*",authorization);
+            case "等突破":
+                return strategyApi.等突破(requestBody,"*/*",authorization);
+            case "高檔等回檔":
+                return strategyApi.高檔等回檔(requestBody,"*/*",authorization);
+            case "回檔等上漲":
+                return strategyApi.回檔等上漲(requestBody,"*/*",authorization);
+            case "等跌破":
+                return strategyApi.等跌破(requestBody,"*/*",authorization);
+            case "低檔等反彈":
+                return strategyApi.低檔等反彈(requestBody,"*/*",authorization);
+            case "反彈等下跌":
+                return strategyApi.反彈等下跌(requestBody,"*/*",authorization);
             default:
                 return Single.error(new IllegalArgumentException("Invalid strategy URL"));
         }
@@ -306,6 +317,18 @@ public class MyUtils1{
 
         for (String data : symbolsList){
             convertList.add(new BaseStockData(data));
+        }
+
+        return  convertList;
+    }
+
+    //==================================================
+
+    public List<String> ConvertToStringList(List<BaseStockData> symbolsList) {
+        List<String> convertList = new ArrayList<>();
+
+        for (BaseStockData data : symbolsList){
+            convertList.add(data.stock_no);
         }
 
         return  convertList;

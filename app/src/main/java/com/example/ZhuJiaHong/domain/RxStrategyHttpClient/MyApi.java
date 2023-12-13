@@ -68,6 +68,28 @@ public interface MyApi {
     @POST("api/logic/strategy/N201")
     Single<ResponseBody> 一點鐘_空(@Body RequestBody var1, @Header("accept") String var0, @Header("Authorization") String authorization);
 
+    //=====================================
+
+    @POST("api/logic/strategy/A101")
+    Single<ResponseBody> 等突破(@Body RequestBody var1, @Header("accept") String var0, @Header("Authorization") String authorization);
+
+    @POST("api/logic/strategy/A103")
+    Single<ResponseBody> 高檔等回檔(@Body RequestBody var1, @Header("accept") String var0, @Header("Authorization") String authorization);
+
+    @POST("api/logic/strategy/A104")
+    Single<ResponseBody> 回檔等上漲(@Body RequestBody var1, @Header("accept") String var0, @Header("Authorization") String authorization);
+
+    @POST("api/logic/strategy/A201")
+    Single<ResponseBody> 等跌破(@Body RequestBody var1, @Header("accept") String var0, @Header("Authorization") String authorization);
+
+    @POST("api/logic/strategy/A203")
+    Single<ResponseBody> 低檔等反彈(@Body RequestBody var1, @Header("accept") String var0, @Header("Authorization") String authorization);
+
+    @POST("api/logic/strategy/A204")
+    Single<ResponseBody> 反彈等下跌(@Body RequestBody var1, @Header("accept") String var0, @Header("Authorization") String authorization);
+
+    //=====================================
+
     @POST
     Single<ResponseBody> 操盤綫_趨勢綫(@Url String url, @Body RequestBody var1, @Header("accept") String var0, @Header("Authorization") String authorization);
 }

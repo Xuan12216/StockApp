@@ -97,7 +97,7 @@
     </string-array>
 
     <!--訂閱後，tabBar呈現icon最大個數-->
-    <string name="after_buy_tab_max_count">6</string>
+    <string name="after_buy_tab_max_count">7</string>
     <string name="order_string">交易</string>
     <string name="more_string">更多</string>
 
@@ -224,5 +224,55 @@
 
     <string name="favorite_group_edit">修改群組名稱</string>
     <string name="favorite_title">自選</string>
+
+    <string-array name="tabUpItem">
+        <item>波段</item>
+        <item>長抱</item>
+        <item>盤中強勢</item>
+        <item>盤中排行</item>
+        <item>一點鐘</item>
+    </string-array>
+
+    <string-array name="tabUpItem1">
+        <item>波段</item>
+        <item>盤中弱勢</item>
+        <item>盤中排行</item>
+        <item>一點鐘</item>
+    </string-array>
+
+    <string-array name="tabMidItem">
+        <item>頭高底高</item>
+        <item>回後準進場</item>
+        <item>起漲策略</item>
+        <item>雙線黃金交叉</item>
+    </string-array>
+
+    <string-array name="tabMidItem1">
+        <item>頭低底低</item>
+        <item>彈後準進場</item>
+        <item>起跌策略</item>
+        <item>雙線死亡交叉</item>
+    </string-array>
+
+    <string-array name="tabDownItem">
+        <item>全部</item>
+        <item>低價</item>
+        <item>中價</item>
+        <item>高價</item>
+        <item>超高</item>
+    </string-array>
+
+    <!--鎖股-->
+    <string-array name="locktabUpItem1">
+        <item>等突破</item>
+        <item>高檔等回檔</item>
+        <item>回檔等上漲</item>
+    </string-array>
+
+    <string-array name="locktabUpItem2">
+        <item>等跌破</item>
+        <item>低檔等反彈</item>
+        <item>反彈等下跌</item>
+    </string-array>
 
 </resources>

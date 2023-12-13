@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.os.Handler;
 import android.os.Parcelable;
 import android.util.DisplayMetrics;
@@ -43,33 +45,26 @@ public class FragmentChooseStock extends BaseFragment implements MyUtils1.OnData
     private HashMap<String,Double> priceFilterHaspMap = new HashMap<>();
     private MyUtils1 myUtils1 = new MyUtils1();
     private WebsocketGetter mWebsocketGetter;
-    private String[] tabUpItem = {"波段","長抱","盤中強勢","盤中排行","一點鐘"};
-    private String[] tabUpItem1 = {"波段","盤中弱勢","盤中排行","一點鐘"};
-    private String[] tabMidItem = {"頭高底高","回後準進場","起漲策略","雙線黃金交叉"};
-    private String[] tabMidItem1 = {"頭低底低","彈後準進場","起跌策略","雙線死亡交叉"};
-    private String[] tabDownItem = {"全部","低價","中價","高價","超高"};
     private LinearLayoutManager layoutManager;
     private Handler handler = new Handler();
-    private static final long REFRESH_INTERVAL = 60000; // 毫秒
     private static Parcelable recyclerViewState;
     final CompositeDisposable mDataRequiredDisposes = new CompositeDisposable();
     final MyDataSourceRequired mDataRequired = new MyDataSourceRequired();
-    private String[] isZhang = {"false", "true", "no"};
-    private String[] isLiang = {"false", "true", "no"};
-    private String[] isQi = {"false", "true", "no"};
+    private String[] sortStatus = {"false", "true", "no"};
     private static int indexZhang = -1, indexLiang = -1, indexQi = -1;
     private List<String> priceSymbols = new ArrayList<>();
-    private static boolean img_tab_click_status = false, all_touch_status = false;//false 多， true 空, 全部觸及
+    private static boolean img_tab_click_status = false, all_touch_status = false, is_trend_mode = true;//false 多， true 空, 全部觸及
     private com.mdbs.base.view.object.dialog.LoadingDialog loadingDialog;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         mWebsocketGetter = new WebsocketGetter(mContext, getViewLifecycleOwner());
         binding = FragmentChooseStockBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
         layoutManager = new LinearLayoutManager(getActivity());
         binding.recyclerViewSelect.setLayoutManager(layoutManager);
+        adapter = new FragmentChooseStockAdapter(mContext,mWebsocketGetter,getViewLifecycleOwner());
+        binding.recyclerViewSelect.setAdapter(adapter);
 
         adjustUiSize();
         listenerFunc();
@@ -82,12 +77,12 @@ public class FragmentChooseStock extends BaseFragment implements MyUtils1.OnData
         binding.tabLayoutUp.removeAllTabs();
         binding.tableLayoutMiddle.removeAllTabs();
 
-        String[] tempTabUpItem = tabUpItem;
-        String[] tempTabMediumItem = tabMidItem;
+        String[] tempTabUpItem = getResources().getStringArray(R.array.tabUpItem);
+        String[] tempTabMediumItem = getResources().getStringArray(R.array.tabMidItem);
 
         if (img_tab_click_status) {
-            tempTabUpItem = tabUpItem1;
-            tempTabMediumItem = tabMidItem1;
+            tempTabUpItem = getResources().getStringArray(R.array.tabUpItem1);
+            tempTabMediumItem = getResources().getStringArray(R.array.tabMidItem1);
         }
 
         replaceTabItem("tabUp",tempTabUpItem);
@@ -122,10 +117,20 @@ public class FragmentChooseStock extends BaseFragment implements MyUtils1.OnData
 
 
     private void listenerFunc() {
+        binding.pageBtnOnOff.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                is_trend_mode = !is_trend_mode;
+                data.setChoose_is_trend_mode(is_trend_mode);
+                checkShortOrLongAndAllTouch();
+                if (null != adapter) adapter.isShowTrendMode(is_trend_mode);
+            }
+        });
         binding.allTouchTv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 all_touch_status = !all_touch_status;
+                data.setChoose_all_touch_status(all_touch_status);
                 checkShortOrLongAndAllTouch();
             }
         });
@@ -147,6 +152,7 @@ public class FragmentChooseStock extends BaseFragment implements MyUtils1.OnData
             @Override
             public void onClick(View v) {
                 img_tab_click_status = !img_tab_click_status;
+                data.setChoose_img_tab_click_status(img_tab_click_status);
                 checkShortOrLongAndAllTouch();
                 setTabItem();
             }
@@ -156,12 +162,13 @@ public class FragmentChooseStock extends BaseFragment implements MyUtils1.OnData
             @Override
             public void onClick(View v) {
                 List<String> tempList = new ArrayList<>();
+                if (null != layoutManager)layoutManager.smoothScrollToPosition(binding.recyclerViewSelect, new RecyclerView.State(),0);
 
                 if ("全部".equals(data.getPriceFilter())) tempList.addAll(symbolsList);
                 else tempList.addAll(priceSymbols);
 
                 indexZhang++;
-                getStockListByFilterClick(Filter.漲跌, tempList, isZhang[indexZhang]);
+                getStockListByFilterClick(Filter.漲跌, tempList, sortStatus[indexZhang]);
                 if (indexZhang >= 2) indexZhang = -1;
             }
         };
@@ -170,12 +177,13 @@ public class FragmentChooseStock extends BaseFragment implements MyUtils1.OnData
             @Override
             public void onClick(View v) {
                 List<String> tempList = new ArrayList<>();
+                if (null != layoutManager)layoutManager.smoothScrollToPosition(binding.recyclerViewSelect, new RecyclerView.State(),0);
 
                 if ("全部".equals(data.getPriceFilter())) tempList.addAll(symbolsList);
                 else tempList.addAll(priceSymbols);
 
                 indexLiang++;
-                getStockListByFilterClick(Filter.量, tempList, isLiang[indexLiang]);
+                getStockListByFilterClick(Filter.量, tempList, sortStatus[indexLiang]);
                 if (indexLiang >= 2) indexLiang = -1;
             }
         };
@@ -184,12 +192,13 @@ public class FragmentChooseStock extends BaseFragment implements MyUtils1.OnData
             @Override
             public void onClick(View v) {
                 List<String> tempList = new ArrayList<>();
+                if (null != layoutManager)layoutManager.smoothScrollToPosition(binding.recyclerViewSelect, new RecyclerView.State(),0);
 
                 if ("全部".equals(data.getPriceFilter())) tempList.addAll(symbolsList);
                 else tempList.addAll(priceSymbols);
 
                 indexQi++;
-                getStockListByFilterClick(Filter.期, tempList, isQi[indexQi]);
+                getStockListByFilterClick(Filter.期, tempList, sortStatus[indexQi]);
                 if (indexQi >= 2) indexQi = -1;
             }
         };
@@ -313,11 +322,9 @@ public class FragmentChooseStock extends BaseFragment implements MyUtils1.OnData
     }
 
     private void checkShortOrLongAndAllTouch() {
-        if (img_tab_click_status) binding.imgTab.setImageResource(R.mipmap.img_tab_short);
-        else binding.imgTab.setImageResource(R.mipmap.img_tab_long);
-
-        if (all_touch_status)binding.allTouchTv.setBackgroundColor(getResources().getColor(R.color.primary1));
-        else binding.allTouchTv.setBackgroundColor(getResources().getColor(R.color.matching1_2));
+        binding.imgTab.setImageResource(img_tab_click_status ? R.mipmap.img_tab_short : R.mipmap.img_tab_long);
+        binding.allTouchTv.setBackgroundColor(all_touch_status ? getResources().getColor(R.color.primary1) : getResources().getColor(R.color.matching1_2));
+        binding.pageBtnOnOff.setImageResource(is_trend_mode ? R.mipmap.page_btn_up_on : R.mipmap.page_btn_up);
     }
 
     //========================================================
@@ -325,10 +332,11 @@ public class FragmentChooseStock extends BaseFragment implements MyUtils1.OnData
     private void sortPriceFilter(String priceFilter) {
         priceSymbols = new ArrayList<>();
         if ("全部".equals(priceFilter) && adapter != null) {
-            binding.imageViewCloseTIme.setVisibility(symbolsList.isEmpty() ? View.VISIBLE : View.GONE);
-            binding.textViewCloseTime.setVisibility(symbolsList.isEmpty() ? View.VISIBLE : View.GONE);
-            binding.textViewCloseTime.setText("您設定的篩選條件，\n目前無符合項目");
-            if (checkFilterSort()) adapter.updateSortList(symbolsList);
+
+            if (!symbolsList.isEmpty()) setRecyclerViewVisible(true);
+            else setRecyclerViewVisible(false);
+
+            if (checkFilterSort()) updateSortList(symbolsList);
             else sortFilter(symbolsList);
         }
         else {
@@ -342,18 +350,11 @@ public class FragmentChooseStock extends BaseFragment implements MyUtils1.OnData
                 if ("超高".equals(priceFilter))if (price >= 250) { priceSymbols.add(symbol); }
             }
 
-            if (priceSymbols.isEmpty()){
-                binding.imageViewCloseTIme.setVisibility(View.VISIBLE);
-                binding.textViewCloseTime.setVisibility(View.VISIBLE);
-                binding.textViewCloseTime.setText("您設定的篩選條件，\n目前無符合項目");
-            }
-            else{
-                binding.imageViewCloseTIme.setVisibility(View.GONE);
-                binding.textViewCloseTime.setVisibility(View.GONE);
-            }
+            if (!priceSymbols.isEmpty()) setRecyclerViewVisible(true);
+            else setRecyclerViewVisible(false);
 
             if (adapter != null) {
-                if (checkFilterSort()) adapter.updateSortList(priceSymbols);
+                if (checkFilterSort()) updateSortList(priceSymbols);
                 else sortFilter(priceSymbols);
             }
         }
@@ -361,10 +362,18 @@ public class FragmentChooseStock extends BaseFragment implements MyUtils1.OnData
 
     //==================================================
 
+    private void setRecyclerViewVisible(boolean isShow){
+        binding.recyclerViewSelect.setVisibility(isShow ? View.VISIBLE : View.GONE);
+        binding.imageViewCloseTIme.setVisibility(isShow ? View.GONE : View.VISIBLE);
+        binding.textViewCloseTime.setVisibility(isShow ? View.GONE : View.VISIBLE);
+        binding.textViewCloseTime.setText("您設定的篩選條件，\n目前無符合項目");
+    }
+
+    //==================================================
     private void sortFilter(List<String> symbolsList) {
-        if (indexZhang != -1) getStockListByFilterClick(Filter.漲跌,symbolsList,isZhang[indexZhang]);
-        else if (indexLiang != -1) getStockListByFilterClick(Filter.量,symbolsList,isLiang[indexLiang]);
-        else if (indexQi != -1) getStockListByFilterClick(Filter.期,symbolsList,isQi[indexQi]);
+        if (indexZhang != -1) getStockListByFilterClick(Filter.漲跌,symbolsList,sortStatus[indexZhang]);
+        else if (indexLiang != -1) getStockListByFilterClick(Filter.量,symbolsList,sortStatus[indexLiang]);
+        else if (indexQi != -1) getStockListByFilterClick(Filter.期,symbolsList,sortStatus[indexQi]);
     }
 
     //==================================================
@@ -397,7 +406,7 @@ public class FragmentChooseStock extends BaseFragment implements MyUtils1.OnData
             if ("全部".equals(data.getPriceFilter())) tempList.addAll(symbolsList);
             else tempList.addAll(priceSymbols);
 
-            if (adapter != null) adapter.updateSortList(tempList);
+            updateSortList(tempList);
         }
         else {
             boolean isTrue = false;
@@ -407,7 +416,7 @@ public class FragmentChooseStock extends BaseFragment implements MyUtils1.OnData
             mDataRequiredDisposes.add(mDataRequired.getAutoSortedStream(myUtils1.ConvertToBaseStockDataList(list), isTrue, name)
                     .compose(TransformerHolder.applySingleScheduler())
                     .as(WhenDispose.onDestroy(this))
-                    .subscribe(this::setStockListByFilterClick)
+                    .subscribe(dataList -> updateSortList(myUtils1.ConvertToStringList(dataList)))
             );
         }
     }
@@ -444,17 +453,9 @@ public class FragmentChooseStock extends BaseFragment implements MyUtils1.OnData
 
     //==========================================================
 
-    private void setStockListByFilterClick(List<BaseStockData> sortList, Throwable object1) {
-
-        if (sortList != null &&!sortList.isEmpty()){
-            List<String> newSymbolList = new ArrayList<>();
-
-            for (int i = 0; i < sortList.size(); i++){
-                String data = sortList.get(i).stock_no;
-                newSymbolList.add(data);
-            }
-
-            if (adapter != null) adapter.updateSortList(newSymbolList);
+    private void updateSortList(List<String> updateList) {
+        if (null != updateList && !updateList.isEmpty() && null != adapter){
+            adapter.updateSortList(updateList, is_trend_mode);
         }
     }
 
@@ -481,15 +482,12 @@ public class FragmentChooseStock extends BaseFragment implements MyUtils1.OnData
     @Override
     public void updateRecyclerViewData(List<String> symbolsList) {
         if (!symbolsList.isEmpty()){
-            binding.imageViewCloseTIme.setVisibility(View.GONE);
-            binding.textViewCloseTime.setVisibility(View.GONE);
+            setRecyclerViewVisible(true);
 
             this.symbolsList = symbolsList;
-            binding.recyclerViewSelect.setVisibility(View.VISIBLE);
-            adapter = new FragmentChooseStockAdapter(symbolsList,mContext,mWebsocketGetter,getViewLifecycleOwner());
+            updateSortList(symbolsList);
 
             if (!checkFilterSort())sortFilter(symbolsList);
-            binding.recyclerViewSelect.setAdapter(adapter);
 
             if (recyclerViewState != null) layoutManager.onRestoreInstanceState(recyclerViewState);
 
@@ -500,7 +498,7 @@ public class FragmentChooseStock extends BaseFragment implements MyUtils1.OnData
         }
         else{
             this.symbolsList = new ArrayList<>();
-            binding.recyclerViewSelect.setVisibility(View.GONE);
+            setRecyclerViewVisible(false);
             // 創建台灣的Calendar實例，並設置時區為台灣
             Calendar taiwanCalendar = Calendar.getInstance(TimeZone.getTimeZone("Asia/Taipei"));
             int hourOfDay = taiwanCalendar.get(Calendar.HOUR_OF_DAY);
@@ -509,28 +507,21 @@ public class FragmentChooseStock extends BaseFragment implements MyUtils1.OnData
             String strategy = data.getStrategy();
 
             if (("盤中強勢".equals(strategy) || "盤中弱勢".equals(strategy)) && dayOfWeek != Calendar.SATURDAY && dayOfWeek != Calendar.SUNDAY && (hourOfDay < 9 || (hourOfDay == 9 && minute < 30))){
-                binding.imageViewCloseTIme.setVisibility(View.VISIBLE);
-                binding.textViewCloseTime.setVisibility(View.VISIBLE);
                 binding.textViewCloseTime.setText("盤中強勢策略\n啓動時間\n09:30~13:30");
             }
             else if ("盤中排行".equals(strategy) && dayOfWeek != Calendar.SATURDAY && dayOfWeek != Calendar.SUNDAY && (hourOfDay < 9 )){
-                binding.imageViewCloseTIme.setVisibility(View.VISIBLE);
-                binding.textViewCloseTime.setVisibility(View.VISIBLE);
                 binding.textViewCloseTime.setText("盤中排行策略\n啓動時間\n09:00~13:30");
             }
             else if("一點鐘".equals(strategy) && dayOfWeek != Calendar.SATURDAY && dayOfWeek != Calendar.SUNDAY && (hourOfDay < 12 || (hourOfDay == 12 && minute < 30))){
-                binding.imageViewCloseTIme.setVisibility(View.VISIBLE);
-                binding.textViewCloseTime.setVisibility(View.VISIBLE);
                 binding.textViewCloseTime.setText("一點鐘策略\n啓動時間\n12:30~13:30");
             }
-            else {
-                binding.imageViewCloseTIme.setVisibility(View.VISIBLE);
-                binding.textViewCloseTime.setVisibility(View.VISIBLE);
-                binding.textViewCloseTime.setText("您設定的篩選條件，\n目前無符合項目");
-            }
+            else binding.textViewCloseTime.setText("您設定的篩選條件，\n目前無符合項目");
         }
 
-        if (loadingDialog != null) loadingDialog.hideDialog();
+        if (loadingDialog != null) {
+            loadingDialog.hideDialog();
+            loadingDialog = null;
+        }
     }
 
     //==========================================================
@@ -554,9 +545,9 @@ public class FragmentChooseStock extends BaseFragment implements MyUtils1.OnData
                         System.out.println("TestXuan:Refresh");
                         checkTimeAndShowData(strategy, strategy_1);
                     }
-                    handler.postDelayed(this, REFRESH_INTERVAL);
+                    handler.postDelayed(this, 60000);
                 }
-            }, REFRESH_INTERVAL);
+            }, 60000);
         }
     }
 
@@ -595,9 +586,13 @@ public class FragmentChooseStock extends BaseFragment implements MyUtils1.OnData
     public void onResume() {
         super.onResume();
 
+        img_tab_click_status = data.isChoose_img_tab_click_status();
+        is_trend_mode = data.isChoose_is_trend_mode();
+        all_touch_status = data.isChoose_all_touch_status();
+
         checkShortOrLongAndAllTouch();
         setTabItem();
-        refreshTabPosition(binding.tabLayoutDown, tabDownItem, data.getPriceFilter());
+        refreshTabPosition(binding.tabLayoutDown, getResources().getStringArray(R.array.tabDownItem), data.getPriceFilter());//tabDown
 
         loadingDialog = new LoadingDialog(mContext);
         if (loadingDialog != null && !loadingDialog.isShowing()) loadingDialog.showDialog();

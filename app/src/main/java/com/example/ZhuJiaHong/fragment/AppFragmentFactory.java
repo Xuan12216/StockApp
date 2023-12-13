@@ -27,7 +27,7 @@ public class AppFragmentFactory implements com.mdbs.base.view.fragment.FragmentF
             case "情報":
                 return new BaseInformationFragment();
             case "設定":
-                return new BaseSettingFragment();
+                return new FragmentSetting();
             default:
                 throw new OperationApplicationException("undefined fragment");
         }

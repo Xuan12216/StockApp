@@ -1,5 +1,6 @@
 package com.example.ZhuJiaHong.activity;
 
+import android.content.SharedPreferences;
 import android.view.KeyEvent;
 import android.view.View;
 
@@ -13,6 +14,8 @@ import com.example.ZhuJiaHong.object.HomePage;
 import com.mdbs.base.view.activity.ActivityHomePageBase;
 import com.mdbs.base.view.object.homepage.BaseHomePage;
 import com.mdbs.base.view.utils.AlertDialogUtil;
+import com.mdbs.base.view.utils.BaseUtil;
+import com.mdbs.base.view.utils.ResizeUtil;
 import com.mdbs.starwave_meta.network.rxhttp.RxOwlHttpClient;
 import com.mdbs.starwave_meta.network.rxhttp.method.TransformerHolder;
 import com.mdbs.starwave_meta.params.enums.CEOwlTable;
@@ -31,6 +34,16 @@ public class ActivityHomePage extends ActivityHomePageBase {
         //期貨
         callFuture();
         if (data.getTokenStrategy().isEmpty()) myUtils1.getStrategyToken(getApplicationContext());
+
+        if (!BaseUtil.isSubscribe(getApplicationContext())){
+            SharedPreferences sharedPreferences = (new ResizeUtil(getApplicationContext())).getSharedPreferences();
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+
+            editor.putBoolean("submit_status", true);
+            editor.putBoolean("member_subscribe", true);
+
+            editor.apply();
+        }
 
         return new HomePage(this);
     }

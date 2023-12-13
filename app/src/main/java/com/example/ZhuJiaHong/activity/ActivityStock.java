@@ -32,20 +32,6 @@ public class ActivityStock extends ModelStockActivity {
     }
 
     @Override
-    protected String getFocusTagName() {
-
-        // TODO return "籌碼";
-        return null;
-    }
-
-    @Override
-    protected String getFocusSubTagName() {
-
-        // TODO return "分點";
-        return null;
-    }
-
-    @Override
     protected void initContentView() {
 
         // TODO
@@ -74,8 +60,25 @@ public class ActivityStock extends ModelStockActivity {
         return result;
     }
 
+    //======================================================
+    //Tag
+
     @Override
-    protected StockSubView createCustomStockSubView(String s) {
+    protected String getFocusTagName() {
+
+        // TODO return "籌碼";
+        return null;
+    }
+
+    @Override
+    protected String getFocusSubTagName() {
+
+        // TODO return "分點";
+        return null;
+    }
+
+    @Override
+    protected StockSubView createCustomStockSubView(String tag) {
 
         return null;
     }

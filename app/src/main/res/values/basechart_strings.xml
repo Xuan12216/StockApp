@@ -1,0 +1,22 @@
+<resources>
+    <string-array name="stock_tab_list1">
+        <item>即時</item>
+        <item>價量</item>
+        <item>分析</item>
+        <item>K線</item>
+        <item>法人</item>
+        <item>資券</item>
+        <item>河流圖</item>
+        <item>公司</item>
+        <item>日曆</item>
+        <item>新聞</item>
+        <item>財務</item>
+        <item>董監</item>
+        <item>籌碼</item>
+        <item>大股東</item>
+        <item>主力</item>
+        <item>觸及紀錄</item>
+        <item>設定</item>
+    </string-array>
+
+</resources>
