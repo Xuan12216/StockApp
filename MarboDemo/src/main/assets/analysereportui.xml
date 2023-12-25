@@ -117,7 +117,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>20</Size>
-          <Color>ffffffff</Color>
+          <Color>ff456c86</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -147,7 +147,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>20</Size>
-          <Color>ff7f684f</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -209,7 +209,7 @@
         <Draggable>false</Draggable>
         <Pickable>true</Pickable>
         <ShowHint>false</ShowHint>
-        <Color>ff4d3a2c</Color>
+        <Color>ffc1d0da</Color>
         <BevelStyle>BEVEL_NONE</BevelStyle>
       </Property>
     </Object>
@@ -437,7 +437,7 @@
         <Draggable>false</Draggable>
         <Pickable>true</Pickable>
         <ShowHint>false</ShowHint>
-        <Color>ff674d3b</Color>
+        <Color>ffb6ccda</Color>
         <BevelStyle>BEVEL_NONE</BevelStyle>
       </Property>
     </Object>
@@ -459,7 +459,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>18</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>10</Flags>
         </Font>
@@ -489,7 +489,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>18</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>0</Flags>
         </Font>
@@ -519,7 +519,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>16</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -997,7 +997,7 @@
         <Draggable>false</Draggable>
         <Pickable>true</Pickable>
         <ShowHint>false</ShowHint>
-        <Color>ff674d3b</Color>
+        <Color>ffcdd8df</Color>
         <BevelStyle>BEVEL_NONE</BevelStyle>
       </Property>
     </Object>
@@ -1019,7 +1019,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>20</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -1049,7 +1049,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>20</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -1079,7 +1079,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>20</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -1109,7 +1109,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>14</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -1139,7 +1139,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>28</Size>
-          <Color>ffdfa72e</Color>
+          <Color>ff456c86</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -1169,7 +1169,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>28</Size>
-          <Color>ffdfa72e</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -1199,7 +1199,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>28</Size>
-          <Color>ffdfa72e</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -1247,7 +1247,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>20</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -1277,7 +1277,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>20</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -1307,7 +1307,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>28</Size>
-          <Color>ffdfa72e</Color>
+          <Color>ff456c86</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -1337,7 +1337,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>28</Size>
-          <Color>ffdfa72e</Color>
+          <Color>ff456c86</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -1377,7 +1377,7 @@
         <FitCaptionPadding>0</FitCaptionPadding>
         <FollowPadding>1</FollowPadding>
         <TruncateType>TRUNCATE_NONE</TruncateType>
-        <Color>ff4d3a2c</Color>
+        <Color>ff9fb8c7</Color>
         <Flat>false</Flat>
         <Selectable>true</Selectable>
         <Down>false</Down>
@@ -1413,7 +1413,7 @@
         <FitCaptionPadding>0</FitCaptionPadding>
         <FollowPadding>1</FollowPadding>
         <TruncateType>TRUNCATE_NONE</TruncateType>
-        <Color>ff4d3a2c</Color>
+        <Color>ff9fb8c7</Color>
         <Flat>false</Flat>
         <Selectable>true</Selectable>
         <Down>false</Down>
@@ -1435,7 +1435,7 @@
         <Draggable>false</Draggable>
         <Pickable>true</Pickable>
         <ShowHint>false</ShowHint>
-        <Color>ffbfbfbf</Color>
+        <Color>ff9fabb2</Color>
         <BevelStyle>BEVEL_NONE</BevelStyle>
       </Property>
     </Object>
@@ -1453,7 +1453,7 @@
         <Draggable>false</Draggable>
         <Pickable>true</Pickable>
         <ShowHint>false</ShowHint>
-        <Color>ffbfbfbf</Color>
+        <Color>ff9fabb2</Color>
         <BevelStyle>BEVEL_NONE</BevelStyle>
       </Property>
     </Object>
@@ -1583,7 +1583,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>20</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -1613,7 +1613,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>20</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -1643,7 +1643,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>20</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -1673,7 +1673,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>20</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -1703,7 +1703,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>20</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -1733,7 +1733,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>20</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -1763,7 +1763,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>20</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -1793,7 +1793,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>20</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -1823,7 +1823,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>20</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -1853,7 +1853,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>18</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -1884,7 +1884,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>18</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -1915,7 +1915,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>18</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -1946,7 +1946,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>18</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -1977,7 +1977,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>18</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -2008,7 +2008,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>18</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -2038,7 +2038,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>18</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -2068,7 +2068,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>18</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -2099,7 +2099,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>18</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -2130,7 +2130,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>18</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -2160,7 +2160,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>18</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -2191,7 +2191,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>18</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -2222,7 +2222,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>18</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -2252,7 +2252,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>20</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -2282,7 +2282,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>20</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -2312,7 +2312,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>20</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -2342,7 +2342,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>20</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -2372,7 +2372,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>20</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -2402,7 +2402,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>20</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -2432,7 +2432,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>20</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -2462,7 +2462,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>20</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -2492,7 +2492,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>20</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -2522,7 +2522,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>20</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -2552,7 +2552,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>20</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -2582,7 +2582,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>20</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -2612,7 +2612,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>20</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -2642,7 +2642,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>20</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -2672,7 +2672,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>20</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -2702,7 +2702,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>20</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -2732,7 +2732,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>20</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -2762,7 +2762,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>20</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -2793,7 +2793,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>16</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -2824,7 +2824,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>16</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -2854,7 +2854,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>20</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -2884,7 +2884,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>20</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -2915,7 +2915,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>16</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -2946,7 +2946,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>16</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -2977,7 +2977,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>16</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -3007,7 +3007,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>20</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -3037,7 +3037,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>20</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -3067,7 +3067,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>20</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -3097,7 +3097,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>20</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -3127,7 +3127,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>20</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -3157,7 +3157,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>20</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -3187,7 +3187,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>20</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -3217,7 +3217,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>20</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -3247,7 +3247,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>16</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -3277,7 +3277,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>20</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -3307,7 +3307,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>20</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -3337,7 +3337,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>20</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -3367,7 +3367,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>20</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -3397,7 +3397,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>20</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -3427,7 +3427,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>20</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -3457,7 +3457,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>20</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -3487,7 +3487,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>20</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -3517,7 +3517,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>20</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -3547,7 +3547,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>20</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -3577,7 +3577,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>20</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -3791,7 +3791,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>18</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -3821,7 +3821,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>18</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -3851,7 +3851,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>18</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -3881,7 +3881,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>18</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -3911,7 +3911,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>18</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -3941,7 +3941,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>18</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -3971,7 +3971,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>18</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -4201,7 +4201,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>16</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>10</Flags>
         </Font>
@@ -4231,7 +4231,7 @@
         <Font>
           <Name>微軟正黑體</Name>
           <Size>16</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>0</Flags>
         </Font>

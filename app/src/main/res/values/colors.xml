@@ -70,7 +70,7 @@
     <color name="dialog_title">#866C45</color>
     <color name="dialog_content_text">#3F3F3F</color>
     <color name="dialog_button_text">#FFFFFF</color>
-    <color name="dialog_button2_text">#FFFFFF</color>
+    <color name="dialog_button2_text">#3F3F3F</color>
     <color name="dialog_cover_bg">#85000000</color>
     <color name="add_favorite_dialog_bg">#3F3F3F</color>
     <color name="add_favorite_dialog_title">#866C45</color>

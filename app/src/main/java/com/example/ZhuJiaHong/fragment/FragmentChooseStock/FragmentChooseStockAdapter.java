@@ -4,6 +4,7 @@ import static com.example.ZhuJiaHong.AppApplication.mStockLoader;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
+import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,10 +20,14 @@ import com.example.ZhuJiaHong.AppApplication;
 import com.example.ZhuJiaHong.R;
 import com.example.ZhuJiaHong.Util.AppUtil;
 import com.example.ZhuJiaHong.Util.Data;
+import com.example.ZhuJiaHong.Util.MAData;
 import com.example.ZhuJiaHong.Util.Stock;
 import com.example.ZhuJiaHong.Util.ValueParser;
 import com.example.ZhuJiaHong.activity.ActivityStock;
 import com.example.ZhuJiaHong.activity.ActivityStockIndustry;
+import com.example.ZhuJiaHong.domain.RxStrategyHttpClient.MyApi;
+import com.example.ZhuJiaHong.domain.RxStrategyHttpClient.RxStrategyHttpClient;
+import com.example.ZhuJiaHong.object.CustomMaAndK.CustomMaAndKView;
 import com.example.ZhuJiaHong.object.CustomPercentView.CustomPercentView;
 import com.example.ZhuJiaHong.object.kf.PriceStyler;
 import com.google.gson.Gson;
@@ -34,21 +39,30 @@ import com.mdbs.basechart.client.WebsocketGetter;
 import com.mdbs.basechart.item.Constant;
 import com.mdbs.starwave_meta.common.stock.ProductSymbol;
 import com.mdbs.starwave_meta.common.stock.StockInfoLoader;
+import com.mdbs.starwave_meta.network.rxhttp.RxOwlHttpClient;
 import com.mdbs.starwave_meta.network.rxhttp.method.TransformerHolder;
 import com.mdbs.starwave_meta.params.RFMatchField;
 import com.mdbs.starwave_meta.params.RFOwlData;
 import com.mdbs.starwave_meta.params.RFStock0Data;
-import com.mdbs.starwave_meta.params.RFSymbolName;
+import com.mdbs.starwave_meta.params.enums.CEOwlTable;
 import com.mdbs.starwave_meta.tools.WhenDispose;
+import com.uber.autodispose.AutoDispose;
+import com.uber.autodispose.android.lifecycle.AndroidLifecycleScopeProvider;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
+import io.reactivex.Observable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.functions.Consumer;
 import io.reactivex.internal.functions.Functions;
+import io.reactivex.schedulers.Schedulers;
 import mdbs.basechart.view.realtime.ModelRealTimeLine2;
+import okhttp3.RequestBody;
 
 public class FragmentChooseStockAdapter extends RecyclerView.Adapter<FragmentChooseStockAdapter.ViewHolder> {
     private List<String> symbolsList;
@@ -60,6 +74,8 @@ public class FragmentChooseStockAdapter extends RecyclerView.Adapter<FragmentCho
     private List<String> listFuture = AppApplication.futureListStockNoOnly;
     private LifecycleOwner lifecycleOwner;
     private boolean isTrendMode = true;
+    private final MyApi strategyApi = RxStrategyHttpClient.getInstance().getStrategyApi();
+    private Data data;
 
     public FragmentChooseStockAdapter(Context context, WebsocketGetter websocketGetter, LifecycleOwner lifecycleOwner) {
         this.symbolsList = new ArrayList<>();
@@ -67,6 +83,7 @@ public class FragmentChooseStockAdapter extends RecyclerView.Adapter<FragmentCho
         this.mContext = context;
         this.mWebsocketGetter = websocketGetter;
         this.lifecycleOwner = lifecycleOwner;
+        data = new Data();
     }
 
     @NonNull
@@ -134,11 +151,14 @@ public class FragmentChooseStockAdapter extends RecyclerView.Adapter<FragmentCho
         super.onViewRecycled(holder);
         // 調用 ViewHolder 的 onViewRecycled 方法
         if (null != holder && null != holder.disposes){
-            holder.onViewRecycled();
+            holder.disposes.clear();
         }
     }
 
     private void topicStock(ProductSymbol symbol) {
+        // 構建請求體
+        RequestBody requestBody = RequestBody.create(null, new byte[0]); // 如果不需要請求體，可以使用這種方式
+
         if (mWebsocketGetter == null) return;
         ViewHolder viewHolder = viewHolderMap.get(symbol.no);
 
@@ -206,9 +226,52 @@ public class FragmentChooseStockAdapter extends RecyclerView.Adapter<FragmentCho
                                         viewHolder.trend_view.setItemOwlData(rfOwlData);
                                     }
                                 }
-                            })
+                            }),
+                    Observable.zip(
+                                    RxOwlHttpClient.getInstance().getMetaApi().getTable(CEOwlTable.個股日K.tableId, symbol.no,25)
+                                            .subscribeOn(Schedulers.io())
+                                            .observeOn(AndroidSchedulers.mainThread())
+                                            .toObservable(),
+                                    strategyApi.操盤綫_趨勢綫("api/ma/8/" + symbol.no, requestBody, "*/*", "Bearer " + data.getTokenStrategy())
+                                            .subscribeOn(Schedulers.io())
+                                            .observeOn(AndroidSchedulers.mainThread())
+                                            .map(responseBody -> parseMAData(responseBody.string()))
+                                            .toObservable(),
+                                    strategyApi.操盤綫_趨勢綫("api/ma/22/" + symbol.no, requestBody, "*/*", "Bearer " + data.getTokenStrategy())
+                                            .subscribeOn(Schedulers.io())
+                                            .observeOn(AndroidSchedulers.mainThread())
+                                            .map(responseBody -> parseMAData(responseBody.string()))
+                                            .toObservable(),
+                                    (historyKB, listMA8, listMA22) -> {
+                                        // 在这里处理三个结果的合并
+                                        viewHolder.customMaAndKView.setData(listMA8,listMA22,historyKB);
+                                        return null; // 返回一个合并结果，这里是 null
+                                    }
+                            )
+                            .as(AutoDispose.autoDisposable(AndroidLifecycleScopeProvider.from(lifecycleOwner)))
+                            .subscribe(result -> {}, throwable -> {})
             );
         }
+    }
+
+    private List<MAData> parseMAData(String utf8String) {
+        List<MAData> maDataList = new ArrayList<>();
+
+        try {
+            JSONArray dataArray = new JSONArray(utf8String);
+
+            for (int i = 0; i < dataArray.length(); i++) {
+                JSONObject entry = dataArray.getJSONObject(i);
+                String date = entry.getString("date");
+                String ma = entry.getString("ma");
+
+                MAData maData = new MAData(date, ma);
+                maDataList.add(maData);
+            }
+        }
+        catch (JSONException e) {e.printStackTrace();}
+
+        return maDataList;
     }
 
     private void updateData(RFStock0Data data) {
@@ -269,9 +332,9 @@ public class FragmentChooseStockAdapter extends RecyclerView.Adapter<FragmentCho
         public CustomPercentView customPercentView;
         public RelativeLayout price_container;
         public ModelRealTimeLine2 trend_view;
+        public CustomMaAndKView customMaAndKView;
         public ConstraintLayout constraintLayout2;
         public CompositeDisposable disposes = new CompositeDisposable();
-
         public ViewHolder(View view) {
             super(view);
             stockNameTextView = view.findViewById(R.id.stockNameTv);
@@ -286,6 +349,7 @@ public class FragmentChooseStockAdapter extends RecyclerView.Adapter<FragmentCho
             price_container = view.findViewById(R.id.price_container);
             trend_view = view.findViewById(R.id.trend_view);
             constraintLayout2 = view.findViewById(R.id.constraintLayout2);
+            customMaAndKView = view.findViewById(R.id.customMaAndK);
 
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -307,11 +371,6 @@ public class FragmentChooseStockAdapter extends RecyclerView.Adapter<FragmentCho
                     }
                 }
             });
-        }
-
-        public void onViewRecycled() {
-            // 在這裡取消訂閱或做其他清理工作
-            disposes.clear();
         }
     }
 }

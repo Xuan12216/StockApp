@@ -2,6 +2,7 @@ package com.example.ZhuJiaHong.Util;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.os.Parcelable;
 
 import androidx.lifecycle.LifecycleOwner;
 
@@ -29,9 +30,31 @@ public class Data {
     private static final String KEY_IS_CLICKED_PREFIX = "isClicked_";
     private static boolean choose_img_tab_click_status = false, choose_all_touch_status = false, choose_is_trend_mode = true;//false 多， true 空, 全部觸及
     private static boolean lock_img_tab_click_status = false, lock_is_trend_mode = true;//false 多， true 空
+    private static Parcelable recyclerViewStateLock, recyclerViewStateChoose;
 
 
     //==============================================================================
+
+
+    public void setAppId_strategy(String appId_strategy) {
+        Data.appId_strategy = appId_strategy;
+    }
+
+    public Parcelable getRecyclerViewStateLock() {
+        return recyclerViewStateLock;
+    }
+
+    public void setRecyclerViewStateLock(Parcelable recyclerViewStateLock) {
+        Data.recyclerViewStateLock = recyclerViewStateLock;
+    }
+
+    public Parcelable getRecyclerViewStateChoose() {
+        return recyclerViewStateChoose;
+    }
+
+    public static void setRecyclerViewStateChoose(Parcelable recyclerViewStateChoose) {
+        Data.recyclerViewStateChoose = recyclerViewStateChoose;
+    }
 
     public boolean isLock_img_tab_click_status() {
         return lock_img_tab_click_status;
@@ -118,6 +141,8 @@ public class Data {
         choose_is_trend_mode = true;
         lock_img_tab_click_status = false;
         lock_is_trend_mode = true;
+        recyclerViewStateLock = null;
+        recyclerViewStateChoose = null;
 
         SharedPreferences preferences = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();

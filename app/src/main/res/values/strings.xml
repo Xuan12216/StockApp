@@ -275,4 +275,6 @@
         <item>反彈等下跌</item>
     </string-array>
 
+    <string name="ma22">趨勢線</string>
+    <string name="ma8">操盤線</string>
 </resources>

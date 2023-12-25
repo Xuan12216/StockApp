@@ -35,7 +35,7 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.aar', '*.jar'], exclude: [])
     implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'com.google.android.material:material:1.10.0'
+    implementation 'com.google.android.material:material:1.5.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
@@ -46,7 +46,7 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'androidx.recyclerview:recyclerview:1.3.0'
     implementation 'com.google.code.gson:gson:2.8.9' //Json解析
-    implementation 'com.google.android.material:material:1.9.0' //Google設計樣式
+    implementation 'com.google.android.material:material:1.10.0' //Google設計樣式
     implementation 'com.google.firebase:firebase-messaging:23.1.2' //firebase推播
     implementation 'com.google.firebase:firebase-crashlytics:18.3.7' //CrashLog
 
@@ -77,4 +77,8 @@ dependencies {
     implementation 'com.auth0.android:jwtdecode:2.0.0'
     implementation 'com.tencent:mmkv-static:1.2.10'
     implementation 'com.jakewharton:disklrucache:2.0.2'
+
+    //MPAndroidChart
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+    implementation 'net.danlew:android.joda:2.12.5'
 }

@@ -27,6 +27,7 @@ import com.mdbs.base.view.fragment.BaseFragment;
 import com.mdbs.base.view.object.dialog.LoadingDialog;
 import com.mdbs.base.view.utils.Utils;
 import com.mdbs.basechart.client.WebsocketGetter;
+import com.mdbs.basechart.view.ProgressUtil;
 import com.mdbs.starwave_meta.network.rxhttp.method.TransformerHolder;
 import com.mdbs.starwave_meta.tools.WhenDispose;
 import java.util.ArrayList;
@@ -47,14 +48,12 @@ public class FragmentChooseStock extends BaseFragment implements MyUtils1.OnData
     private WebsocketGetter mWebsocketGetter;
     private LinearLayoutManager layoutManager;
     private Handler handler = new Handler();
-    private static Parcelable recyclerViewState;
     final CompositeDisposable mDataRequiredDisposes = new CompositeDisposable();
     final MyDataSourceRequired mDataRequired = new MyDataSourceRequired();
     private String[] sortStatus = {"false", "true", "no"};
     private static int indexZhang = -1, indexLiang = -1, indexQi = -1;
     private List<String> priceSymbols = new ArrayList<>();
     private static boolean img_tab_click_status = false, all_touch_status = false, is_trend_mode = true;//false 多， true 空, 全部觸及
-    private com.mdbs.base.view.object.dialog.LoadingDialog loadingDialog;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -394,6 +393,9 @@ public class FragmentChooseStock extends BaseFragment implements MyUtils1.OnData
         // Resize TextViews
         binding.textViewCloseTime.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize2);
         binding.textViewSelect.setTextSize(TypedValue.COMPLEX_UNIT_PX, Utils.dp2px(mContext, 22));
+        ViewGroup.LayoutParams layoutParams = binding.imageView1.getLayoutParams();
+        layoutParams.height = Utils.dp2px(mContext,60);
+        binding.imageView1.setLayoutParams(layoutParams);
     }
 
     //==========================================================
@@ -489,7 +491,7 @@ public class FragmentChooseStock extends BaseFragment implements MyUtils1.OnData
 
             if (!checkFilterSort())sortFilter(symbolsList);
 
-            if (recyclerViewState != null) layoutManager.onRestoreInstanceState(recyclerViewState);
+            if (data.getRecyclerViewStateChoose() != null) layoutManager.onRestoreInstanceState(data.getRecyclerViewStateChoose());
 
             String priceFilter = data.getPriceFilter();
             if (!"全部".equals(priceFilter)) sortPriceFilter(priceFilter);
@@ -518,10 +520,7 @@ public class FragmentChooseStock extends BaseFragment implements MyUtils1.OnData
             else binding.textViewCloseTime.setText("您設定的篩選條件，\n目前無符合項目");
         }
 
-        if (loadingDialog != null) {
-            loadingDialog.hideDialog();
-            loadingDialog = null;
-        }
+        ProgressUtil.getInstance().dismiss();
     }
 
     //==========================================================
@@ -562,7 +561,7 @@ public class FragmentChooseStock extends BaseFragment implements MyUtils1.OnData
     public void onPause() {
         super.onPause();
         cancelTimerAndOther();
-        recyclerViewState = layoutManager.onSaveInstanceState();
+        data.setRecyclerViewStateChoose(layoutManager.onSaveInstanceState());
     }
 
     //==========================================================
@@ -594,8 +593,7 @@ public class FragmentChooseStock extends BaseFragment implements MyUtils1.OnData
         setTabItem();
         refreshTabPosition(binding.tabLayoutDown, getResources().getStringArray(R.array.tabDownItem), data.getPriceFilter());//tabDown
 
-        loadingDialog = new LoadingDialog(mContext);
-        if (loadingDialog != null && !loadingDialog.isShowing()) loadingDialog.showDialog();
+        ProgressUtil.getInstance().show(mContext);
 
         if (data.getTokenStrategy().isEmpty()) myUtils1.getStrategyToken(mContext);
     }

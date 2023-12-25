@@ -1,5 +1,9 @@
 package com.example.ZhuJiaHong.fragment;
 
+import static com.mdbs.starwave_meta.common.stock.StockInfoLoader.SYMBOL_OTC;
+import static com.mdbs.starwave_meta.common.stock.StockInfoLoader.SYMBOL_TWSE;
+import static com.mdbs.starwave_meta.common.stock.StockInfoLoader.SYMBOL_TXF;
+
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,6 +24,7 @@ import com.mdbs.basechart.activity.ActivityNews;
 import com.mdbs.basechart.activity.ActivityTwse;
 import com.mdbs.basechart.client.RxGatewayStarwave;
 import com.mdbs.basechart.setting.ModelResourceSetting;
+import com.mdbs.basechart.view.base.ModelTrendView;
 import com.mdbs.starwave_meta.common.stock.StockInfoLoader;
 import com.mdbs.starwave_meta.network.rxhttp.RxOwlHttpClient;
 import com.mdbs.starwave_meta.params.RFStock0Data;
@@ -73,12 +78,11 @@ public class FragmentTwse extends BaseFragment {
         disposes = new CompositeDisposable();
 
         // 報價
-        disposes.add(rxGatewayStarwave.stock0(StockInfoLoader.SYMBOL_TWSE).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
-                .subscribe(this::setOpenPrice, Functions.ERROR_CONSUMER));
-        disposes.add(rxGatewayStarwave.stock0(StockInfoLoader.SYMBOL_OTC).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+        disposes.add(rxGatewayStarwave.stock0(SYMBOL_OTC).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
                 .subscribe(x -> view.otc.setValue(x), Functions.ERROR_CONSUMER));
-        disposes.add(rxGatewayStarwave.stock0(StockInfoLoader.SYMBOL_TXF).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+        disposes.add(rxGatewayStarwave.stock0(SYMBOL_TXF).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
                 .subscribe(this::setTxfPrice, Functions.ERROR_CONSUMER));
+        disposes.add(rxGatewayStarwave.stock0(SYMBOL_TWSE).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(this::setOpenPrice, Functions.ERROR_CONSUMER));
 
         // 即時圖
         view.trendView.connect(rxGatewayStarwave);
@@ -138,7 +142,7 @@ public class FragmentTwse extends BaseFragment {
             view.industryDistributionView.setUpdateText(data);
             view.upDownView.setUpdateText(data);
             view.twse.setValue(data);
-            view.trendView.setOpenPrice(data.ref, data.high, data.low, true);
+            view.trendView.setStock0Data(data);
         }
         catch (Exception e) {
             e.printStackTrace();

@@ -1,8 +1,8 @@
 ﻿id	cid	Text
-1	104	<font color=#000000>%s 開%s 高%s 低%s 收%s</font>
+1	104	<font color=#866C45>%s</font>開%s 高%s 低%s 收%s
 2	104	<font color=%s>上軌%.2f 下軌%.2f</font> 
 3	104	<font color=%s>%dMA:%s</font> 
-4	104	<font color=#000000>量%s</font>
+4	104	<font color=#866C45>量%s</font>
 5	104	<font color=%s>DIF %s</font> <font color=%s>MACD %s</font> <font color=%s>DIF-MACD %s</font>
 6	104	<font color=%s>K%s</font> <font color=%s>D%s</font>
 7	104	<font color=%s>RSI(5)%s</font> <font color=%s>RSI(10)%s</font>
@@ -40,7 +40,9 @@
 61	104	<font color=%s><b>一</b></font>%s 
 62	104	<img src=redgreen_bar.png>%s
 63	104	彩虹線
-64	104	乖離率 <font color=%s>%.2f%%</font>
+64	104	<font color=%s>BIAS%d %.2f</font> 
+65	104	<font color=%s>B%d-B%d %.2f</font> 
+66	104	<font color=%s>SAR %.2f</font> 
 71	104	外資持股
 72	104	投信持股
 73	104	主力持股
@@ -59,34 +61,34 @@
 317	104	單位(倍)
 318	104	單位(%s)
 319	104	單位(次)
-321	104	"<p align=""right><font color=""#f8c91c"">█</font>年成長率</p>"
-322	104	"#2e92df,#f8c91c"
-323	104	"<p align=""right><font color=""#f8c91c"">█</font>EPS成長率</p>"
-324	104	"#2e92df,#f8c91c"
-325	104	"<p align=""right><font color=#2e92df>█</font>現金股利  <font color=#add377>█</font>股票股利"
-326	104	"#2e92df,#add377"
-327	104	"<p align=""right><font color=""#2e92df"">█</font>營業毛利  <font color=""#ff8e2b"">█</font>營業淨利  <font color=""#f8c91c"">█</font>稅後淨利</p>"
-328	104	"#2e92df,#ff8e2b,#f8c91c"
-329	104	"<p align=""right><font color=""#2e92df"">█</font>EPS(元)  <font color=""#f8c91c"">█</font>毛利率  <font color=""#add377"">█</font>營益率  <font color=""#ae87ff"">█</font>稅前淨利率  <font color=""#ff8e2b"">█</font>稅後淨利率</p>"
-330	104	"#2e92df,#f8c91c,#add377,#ae87ff,#ff8e2b"
-331	104	<p align=right><font color=#2e92df>█</font><font size=-2>累季資產報酬率</font>  <font color=#f8c91c>█</font><font size=-2>累季股東權益報酬率</font>  <font color=#add377>█</font><font size=-2>股價盈餘成長比</font></p>
-332	104	#2e92df,#f8c91c,#add377
-333	104	"<p align=right><font color=#2e92df>█</font>合約負債  <font color=#f8c91c>█</font>合約負債年增率  <font color=#add377>█</font>合約負債佔股本</p>"
-334	104	#2e92df,#f8c91c,#add377	
-335	104	"<p align=""right><font color=""#2e92df"">█</font>營收  <font color=""#f8c91c"">█</font>營收季增率  <font color=""#ae87ff"">█</font>應收帳款季增率  <font color=""#ff8e2b"">█</font>存貨周轉率"
-336	104	"#2e92df,#f8c91c,#ae87ff,#ff8e2b"
-337	104	"<p align=""right><font color=""#f8c91c"">█</font>資產  <font color=""#ae87ff"">█</font>流動資產  <font color=""#ff8e2b"">█</font>流動負債</p>"
+321	104	"<p align=""right><font color=""#866c45"">█</font><font color=""#3f3f3f"">年成長率</font></p>"
+322	104	"#efcf99,#866c45"
+323	104	"<p align=""right><font color=""#866c45"">█</font><font color=""#3f3f3f"">EPS成長率</font></p>"
+324	104	"#efcf99,#866c45"
+325	104	"<p align=""right><font color=#EFCF99>█</font><font color=""#3f3f3f"">現金股利</font>  <font color=#BFA374>█</font><font color=""#3f3f3f"">股票股利</font></p>"
+326	104	"#efcf99,#bfa374"
+327	104	"<p align=""right><font color=""#2c90cb"">█</font><font color=""#3f3f3f"">營業毛利</font>  <font color=""#bd5a03"">█</font><font color=""#3f3f3f"">營業淨利</font>  <font color=""#f4ab14"">█</font><font color=""#3f3f3f"">稅後淨利</font></p>"
+328	104	"#2c90cb,#bd5a03,#f4ab14"
+329	104	"<p align=""right><font color=""#efcf99"">█</font><font color=""#3f3f3f"">EPS(元)</font>  <font color=""#31a931"">█</font><font color=""#3f3f3f"">毛利率</font>  <font color=""#bd5a03"">█</font><font color=""#3f3f3f"">營益率</font>  <font color=""#2c90cb"">█</font><font color=""#3f3f3f"">稅前淨利率</font>  <font color=""#9471dd"">█</font><font color=""#3f3f3f"">稅後淨利率</font></p>"
+330	104	"#efcf99,#31a931,#bd5a03,#2c90cb,#9471dd"
+331	104	<p align=right><font color=#2c90cb>█</font><font size=-2 color=""#3f3f3f"">累季資產報酬率</font>  <font color=#bd5a03>█</font><font size=-2 color=""#3f3f3f"">累季股東權益報酬率</font>  <font color=#f4ab14>█</font><font size=-2 color=""#3f3f3f"">股價盈餘成長比</font></p>
+332	104	#2c90cb,#bd5a03,#f4ab14
+333	104	"<p align=right><font color=#EFCF99>█</font><font color=""#3f3f3f"">合約負債</font>  <font color=#BD5A03>█</font><font color=""#3f3f3f"">合約負債年增率</font>  <font color=#2C90CB>█</font><font color=""#3f3f3f"">合約負債佔股本</font></p>"
+334	104	#efcf99,#bd5a03,#2c90cb
+335	104	"<p align=""right><font color=""#EFCF99"">█</font><font color=""#3f3f3f"">營收</font>  <font color=""#5DB582"">█</font><font color=""#3f3f3f"">營收季增率</font>  <font color=""#BD5A03"">█</font><font color=""#3f3f3f"">應收帳款季增率</font>  <font color=""#2C90CB"">█</font><font color=""#3f3f3f"">存貨周轉率</font>"
+336	104	"#efcf99,#5bd582,#bd5a03,#2c90cb"
+337	104	"<p align=""right><font color=""#F4AB14"">█</font><font color=""#3f3f3f"">資產</font>  <font color=""#AE87FF"">█</font><font color=""#3f3f3f"">流動資產</font>  <font color=""#BD5A03"">█</font><font color=""#3f3f3f"">流動負債</font></p>"
 338	104	"#f8c91c,#ae87ff,#ff8e2b"
-339	104	"<p align=""right><font color=""#2e92df"">█</font>淨現金流  <font color=""#ff8e2b"">█</font>營業活動  <font color=""#f8c91c"">█</font>投資活動  <font color=""#ae87ff"">█</font>融資活動</p>"
-340	104	"#2e92df,#ff8e2b,#f8c91c,#ae87ff"
-341	104	"<p align=""right><font color=""#2e92df"">█</font>流動比率  <font color=""#ff8e2b"">█</font>速動比率  <font color=""#f8c91c"">█</font>負債比率</p>"
-342	104	"#2e92df,#ff8e2b,#f8c91c"
-343	104	"<p align=""right><font color=""#2e92df"">█</font>本益比  <img src=redgreen_bar.png>月K</p>"
-344	104	"#2e92df,#f8c91c"
-345	104	"<p align=""right><font color=""#2e92df"">█</font>本淨比  <img src=redgreen_bar.png>月K</p>"
-346	104	"#2e92df,#f8c91c"
-355	104	<p align="center"><font color="#ff3030">%.02f  </font><font color="#2ea7df">█</font>%.02f  <font color="#77d9ff">█</font>%.02f  <font color="#ebdcfc">█</font>%.02f <font color="#d4abff">█</font>%.02f  <font color="#b970ff">█</font>%.02f</p>
-356	104	#2ea7df,#77d9ff,#ebdcfc,#d4abff,#b970ff,#ebdcfc
+339	104	"<p align=""right><font color=""#2C90CB"">█</font><font color=""#3f3f3f"">淨現金流</font>  <font color=""#BD5A03"">█</font><font color=""#3f3f3f"">營業活動</font>  <font color=""#F4AB14"">█</font><font color=""#3f3f3f"">投資活動</font>  <font color=""#AE87FF"">█</font><font color=""#3f3f3f"">融資活動</font></p>"
+340	104	"#2c90cb,#bd5a03,#f4ab14,#ae87ff"
+341	104	"<p align=""right><font color=""#2C90CB"">█</font><font color=""#3f3f3f"">流動比率</font>  <font color=""#BD5A03"">█</font><font color=""#3f3f3f"">速動比率</font>  <font color=""#F4AB14"">█</font><font color=""#3f3f3f"">負債比率</font></p>"
+342	104	"#2c90cb,#bd5a03,#f4ab14"
+343	104	"<p align=""right><font color=""#866C45"">█</font><font color=""#3f3f3f"">本益比</font>  <img src=redgreen_bar.png><font color=""#3f3f3f"">月K</font></p>"
+344	104	"#866c45,#f8c91c"
+345	104	"<p align=""right><font color=""#866C45"">█</font><font color=""#3f3f3f"">本淨比</font>  <img src=redgreen_bar.png><font color=""#3f3f3f"">月K</font></p>"
+346	104	"#866c45,#f8c91c"
+355	104	<p align="center"><font color="#e13b3b">%.02f  </font><font color="#2ea7df">█</font>%.02f  <font color="#77d9ff">█</font>%.02f  <font color="#ebdcfc">█</font>%.02f <font color="#d4abff">█</font>%.02f  <font color="#b970ff">█</font>%.02f</p>
+356	104	#0095ab,#91c5cd,#efcf99,#d4b279,#a27c3b,#3f3f3f
 357	104	#ff3030
 361	104	█
 362	104	□
@@ -174,3 +176,8 @@
 806	104	新上榜
 807	104	、
 808	104	無
+811	104	<font size=+2 color="#2ea7df">●%d月加碼比例最多董監事：</font><br>%s，買超<font color="#FF3030">%d</font>張<br>
+812	104	<font size=+2 color="#2ea7df">●%d月加碼比例最多董監事：</font><br>無<br>
+813	104	<font size=+2 color="#2ea7df">●%d月減碼比例最多董監事：</font><br>%s，賣超<font color="#00FF00">%d</font>張<br>
+814	104	<font size=+2 color="#2ea7df">●%d月減碼比例最多董監事：</font><br>無<br>
+815	104	<font size=+2 color="#2ea7df">●%d月新上榜董監事：</font><br>

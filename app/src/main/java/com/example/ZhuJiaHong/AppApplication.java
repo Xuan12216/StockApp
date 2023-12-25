@@ -5,6 +5,7 @@ import com.example.ZhuJiaHong.object.MyMarboView;
 import com.google.firebase.FirebaseApp;
 import com.mdbs.base.view.application.BaseAppApplication;
 import com.mdbs.base.view.setting.GalaxySetting;
+import com.mdbs.basechart.client.OwlRealTimeApi;
 import com.mdbs.basechart.setting.ModelSetting;
 import com.mdbs.starwave_meta.MetaPlugin;
 import com.mdbs.starwave_meta.common.stock.ProductSymbol;
@@ -22,6 +23,7 @@ public class AppApplication extends BaseAppApplication {
     private boolean isLight = true;//是否爲淺色底app
     private boolean isBold = true;//是否為整體粗體app
     public static StockInfoLoader mStockLoader;
+    public static OwlRealTimeApi mRealTimeApi;
 
     static {
         System.loadLibrary("marboapp");
@@ -38,6 +40,7 @@ public class AppApplication extends BaseAppApplication {
         FirebaseApp.initializeApp(this);//Firebase初始化
         MetaPlugin.initialize(this);//連綫初始化
         mStockLoader = StockInfoLoader.getInstance();//個股清單初始化
+        mRealTimeApi = new OwlRealTimeApi();
         //設定公版模組的MarboView
         //MarboUtil.initMarboView(new MyMarboView(getApplicationContext(), null));
     }

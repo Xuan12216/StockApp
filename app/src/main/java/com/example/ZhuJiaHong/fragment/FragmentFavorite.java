@@ -8,6 +8,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.lifecycle.LifecycleOwner;
 import static com.example.ZhuJiaHong.AppApplication.mStockLoader;
+
+import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,12 +38,16 @@ import com.mdbs.basechart.base.Utils;
 import com.mdbs.basechart.client.RxGatewayStarwave;
 import com.mdbs.basechart.client.RxPollings;
 import com.mdbs.basechart.client.WebsocketGetter;
+import com.mdbs.basechart.view.ProgressUtil;
 import com.mdbs.starwave_meta.common.stock.ProductSymbol;
 import com.mdbs.starwave_meta.common.stock.StockInfoLoader;
+import com.mdbs.starwave_meta.common.stock.TechIndexData;
 import com.mdbs.starwave_meta.network.rxhttp.RxOwlHttpClient;
 import com.mdbs.starwave_meta.network.rxhttp.method.TransformerHolder;
 import com.mdbs.starwave_meta.params.RFOwlData;
 import com.mdbs.starwave_meta.params.RFStock0Data;
+import com.mdbs.starwave_meta.params.enums.CEOwlTable;
+import com.mdbs.starwave_meta.params.enums.CETick;
 import com.mdbs.starwave_meta.tools.WhenDispose;
 import com.mdbs.starwave_meta.tools.methods.Method0;
 import com.uber.autodispose.AutoDispose;
@@ -57,14 +63,18 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
+import io.reactivex.Observable;
 import io.reactivex.Single;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.functions.BiFunction;
 import io.reactivex.functions.Consumer;
 import io.reactivex.internal.functions.Functions;
 import io.reactivex.schedulers.Schedulers;
 import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
 
 @interface DisplayMode {
 
@@ -149,7 +159,7 @@ public class FragmentFavorite extends MyBaseFavoriteFragment {
 
     private void topicStock(ProductSymbol symbol, BaseRecycleLayout holder) {
 
-        if (mWebsocketGetter == null) return;
+        if (mWebsocketGetter == null || symbol == null) return;
 
         FavoriteViewHolder viewHolder = (FavoriteViewHolder) holder;
         // 構建請求體
@@ -180,7 +190,7 @@ public class FragmentFavorite extends MyBaseFavoriteFragment {
                                 viewHolder.binding.customPercentView.setVisibility(View.INVISIBLE);
                             }
 
-                        }, Functions.ERROR_CONSUMER), //即時k
+                        }, Functions.ERROR_CONSUMER),
                 RxPollings.sellbuy(symbol)
                         .compose(TransformerHolder.applyFlowableScheduler())
                         .as(WhenDispose.autoFocus(this))
@@ -218,28 +228,30 @@ public class FragmentFavorite extends MyBaseFavoriteFragment {
                                 }
                             }
                         }),
-                strategyApi.操盤綫_趨勢綫("api/ma/8/"+symbol.no,requestBody,"*/*","Bearer "+data.getTokenStrategy())
-                        .subscribeOn(Schedulers.io())
-                        .observeOn(AndroidSchedulers.mainThread())
-                        .as(AutoDispose.autoDisposable(AndroidLifecycleScopeProvider.from(getViewLifecycleOwner())))
-                        .subscribe(
-                                response -> {
-                                    String responseData = response.string();
-                                    String utf8String = StringEscapeUtils.unescapeJava(responseData);
-                                    List<MAData> maDataList = parseMAData(utf8String);
-                                }
-                        ),
-                strategyApi.操盤綫_趨勢綫("api/ma/22/"+symbol.no,requestBody,"*/*","Bearer "+data.getTokenStrategy())
-                        .subscribeOn(Schedulers.io())
-                        .observeOn(AndroidSchedulers.mainThread())
-                        .as(AutoDispose.autoDisposable(AndroidLifecycleScopeProvider.from(getViewLifecycleOwner())))
-                        .subscribe(
-                                response -> {
-                                    String responseData = response.string();
-                                    String utf8String = StringEscapeUtils.unescapeJava(responseData);
-                                    List<MAData> maDataList = parseMAData(utf8String);
+                Observable.zip(
+                                RxOwlHttpClient.getInstance().getMetaApi().getTable(CEOwlTable.個股日K.tableId, symbol.no,25)
+                                        .subscribeOn(Schedulers.io())
+                                        .observeOn(AndroidSchedulers.mainThread())
+                                        .toObservable(),
+                                strategyApi.操盤綫_趨勢綫("api/ma/8/" + symbol.no, requestBody, "*/*", "Bearer " + data.getTokenStrategy())
+                                        .subscribeOn(Schedulers.io())
+                                        .observeOn(AndroidSchedulers.mainThread())
+                                        .map(responseBody -> parseMAData(responseBody.string()))
+                                        .toObservable(),
+                                strategyApi.操盤綫_趨勢綫("api/ma/22/" + symbol.no, requestBody, "*/*", "Bearer " + data.getTokenStrategy())
+                                        .subscribeOn(Schedulers.io())
+                                        .observeOn(AndroidSchedulers.mainThread())
+                                        .map(responseBody -> parseMAData(responseBody.string()))
+                                        .toObservable(),
+                                (historyKB, listMA8, listMA22) -> {
+                                    // 在这里处理三个结果的合并
+                                    viewHolder.binding.customMaAndK.setData(listMA8,listMA22,historyKB);
+                                    return null; // 返回一个合并结果，这里是 null
                                 }
                         )
+                        .retry()
+                        .as(AutoDispose.autoDisposable(AndroidLifecycleScopeProvider.from(getViewLifecycleOwner())))
+                        .subscribe(result -> {}, throwable -> {})
         );
     }
 

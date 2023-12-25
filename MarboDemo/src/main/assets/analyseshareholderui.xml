@@ -985,6 +985,49 @@
       </Property>
     </Object>
     <Object>
+      <Name>FuncButton5</Name>
+      <Type>1</Type>
+      <Property>
+        <Left>770</Left>
+        <Top>197</Top>
+        <Width>170</Width>
+        <Height>80</Height>
+        <GroupId>0</GroupId>
+        <Enabled>true</Enabled>
+        <Visible>true</Visible>
+        <Draggable>false</Draggable>
+        <Pickable>true</Pickable>
+        <ShowHint>false</ShowHint>
+        <Caption>董監事持股</Caption>
+        <Font>
+          <Name>微軟正黑體</Name>
+          <Size>22</Size>
+          <Color>ff816a50</Color>
+          <ShadowColor>ff000000</ShadowColor>
+          <Flags>20</Flags>
+        </Font>
+        <AutoSize>false</AutoSize>
+        <CaptionAutoWrap>false</CaptionAutoWrap>
+        <CaptionAutoScale>false</CaptionAutoScale>
+        <FitCaptionPadding>0</FitCaptionPadding>
+        <FollowPadding>1</FollowPadding>
+        <TruncateType>TRUNCATE_NONE</TruncateType>
+        <Color>0</Color>
+        <Flat>true</Flat>
+        <Selectable>true</Selectable>
+        <Down>false</Down>
+        <UseDownFont>true</UseDownFont>
+        <DownFont>
+          <Name>微軟正黑體</Name>
+          <Size>22</Size>
+          <Color>ffffffff</Color>
+          <ShadowColor>ff000000</ShadowColor>
+          <Flags>22</Flags>
+        </DownFont>
+        <BevelStyle>BEVEL_RAISED</BevelStyle>
+      </Property>
+    </Object>
+    <Object>
       <Name>ChartPanel</Name>
       <Type>3</Type>
       <Property>
@@ -1194,7 +1237,7 @@
         <VScrollBar.Color>ffbfbfbf</VScrollBar.Color>
         <VScrollBar.BevelStyle>BEVEL_NONE</VScrollBar.BevelStyle>
         <VScrollBar.Position>0</VScrollBar.Position>
-        <VScrollBar.Max>0</VScrollBar.Max>
+        <VScrollBar.Max>1</VScrollBar.Max>
         <VScrollBar.Min>0</VScrollBar.Min>
         <VScrollBar.PageSize>20</VScrollBar.PageSize>
         <VScrollBar.AutoDragSize>false</VScrollBar.AutoDragSize>
@@ -1524,7 +1567,7 @@
         <VScrollBar.Color>ffbfbfbf</VScrollBar.Color>
         <VScrollBar.BevelStyle>BEVEL_LOWERED</VScrollBar.BevelStyle>
         <VScrollBar.Position>0</VScrollBar.Position>
-        <VScrollBar.Max>0</VScrollBar.Max>
+        <VScrollBar.Max>1</VScrollBar.Max>
         <VScrollBar.Min>0</VScrollBar.Min>
         <VScrollBar.PageSize>20</VScrollBar.PageSize>
         <VScrollBar.AutoDragSize>false</VScrollBar.AutoDragSize>
@@ -2086,7 +2129,7 @@
         <VScrollBar.Color>ffbfbfbf</VScrollBar.Color>
         <VScrollBar.BevelStyle>BEVEL_NONE</VScrollBar.BevelStyle>
         <VScrollBar.Position>0</VScrollBar.Position>
-        <VScrollBar.Max>0</VScrollBar.Max>
+        <VScrollBar.Max>1</VScrollBar.Max>
         <VScrollBar.Min>0</VScrollBar.Min>
         <VScrollBar.PageSize>20</VScrollBar.PageSize>
         <VScrollBar.AutoDragSize>false</VScrollBar.AutoDragSize>
@@ -2293,7 +2336,7 @@
         <VScrollBar.Color>ffbfbfbf</VScrollBar.Color>
         <VScrollBar.BevelStyle>BEVEL_LOWERED</VScrollBar.BevelStyle>
         <VScrollBar.Position>0</VScrollBar.Position>
-        <VScrollBar.Max>2</VScrollBar.Max>
+        <VScrollBar.Max>4</VScrollBar.Max>
         <VScrollBar.Min>0</VScrollBar.Min>
         <VScrollBar.PageSize>20</VScrollBar.PageSize>
         <VScrollBar.AutoDragSize>false</VScrollBar.AutoDragSize>
@@ -3290,7 +3333,7 @@
         <VScrollBar.Color>ffbfbfbf</VScrollBar.Color>
         <VScrollBar.BevelStyle>BEVEL_LOWERED</VScrollBar.BevelStyle>
         <VScrollBar.Position>0</VScrollBar.Position>
-        <VScrollBar.Max>2</VScrollBar.Max>
+        <VScrollBar.Max>4</VScrollBar.Max>
         <VScrollBar.Min>0</VScrollBar.Min>
         <VScrollBar.PageSize>20</VScrollBar.PageSize>
         <VScrollBar.AutoDragSize>false</VScrollBar.AutoDragSize>
@@ -3580,7 +3623,7 @@
         <VScrollBar.Color>ffbfbfbf</VScrollBar.Color>
         <VScrollBar.BevelStyle>BEVEL_LOWERED</VScrollBar.BevelStyle>
         <VScrollBar.Position>0</VScrollBar.Position>
-        <VScrollBar.Max>0</VScrollBar.Max>
+        <VScrollBar.Max>1</VScrollBar.Max>
         <VScrollBar.Min>0</VScrollBar.Min>
         <VScrollBar.PageSize>20</VScrollBar.PageSize>
         <VScrollBar.AutoDragSize>false</VScrollBar.AutoDragSize>

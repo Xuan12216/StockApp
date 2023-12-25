@@ -110,7 +110,7 @@ public class TwseView extends BaseLinearLayout {
         LayoutParams dataParams = new LayoutParams(MATCH_PARENT, WRAP_CONTENT);
         dataParams.setMargins(com.mdbs.base.view.utils.Utils.convertDpToPixel(10, mContext), 0, com.mdbs.base.view.utils.Utils.convertDpToPixel(10, mContext), 0);
         taiexDataView = new TaiexDataView(mContext);
-        taiexDataView.setCorporationImageResource(R.mipmap.twse_corporation_img, R.mipmap.twse_corporation_img_lock);
+        //taiexDataView.setCorporationImageResource(R.mipmap.twse_corporation_img, R.mipmap.twse_corporation_img_lock);
         contentLayout.addView(taiexDataView, dataParams);
         contentLayout.addView(createDivider());
     }

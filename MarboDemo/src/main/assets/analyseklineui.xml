@@ -37,9 +37,9 @@
         <BevelStyle>BEVEL_NONE</BevelStyle>
         <Font>
           <Name>Arial</Name>
-          <Size>20</Size>
-          <Color>ffffffff</Color>
-          <ShadowColor>ff000000</ShadowColor>
+          <Size>18</Size>
+          <Color>ff3f3f3f</Color>
+          <ShadowColor>ffffffff</ShadowColor>
           <Flags>1</Flags>
         </Font>
         <LinkColor>ffff0000</LinkColor>
@@ -221,7 +221,7 @@
         <Font>
           <Name>Arial</Name>
           <Size>18</Size>
-          <Color>ffc0c0c0</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -324,7 +324,7 @@
       <Type>3</Type>
       <Property>
         <Left>0</Left>
-        <Top>425</Top>
+        <Top>476</Top>
         <Width>640</Width>
         <Height>200</Height>
         <GroupId>2</GroupId>
@@ -342,7 +342,7 @@
       <Type>3</Type>
       <Property>
         <Left>0</Left>
-        <Top>484</Top>
+        <Top>535</Top>
         <Width>560</Width>
         <Height>120</Height>
         <GroupId>2</GroupId>
@@ -360,8 +360,8 @@
       <Type>17</Type>
       <Property>
         <Left>8</Left>
-        <Top>425</Top>
-        <Width>640</Width>
+        <Top>476</Top>
+        <Width>624</Width>
         <Height>40</Height>
         <GroupId>2</GroupId>
         <Enabled>true</Enabled>
@@ -373,8 +373,8 @@
         <BevelStyle>BEVEL_NONE</BevelStyle>
         <Font>
           <Name>Arial</Name>
-          <Size>20</Size>
-          <Color>ffffffff</Color>
+          <Size>18</Size>
+          <Color>ff456c86</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>1</Flags>
         </Font>
@@ -389,7 +389,7 @@
         <LineSpacing>0</LineSpacing>
         <VScrollBar.ParentAlign>PA_RIGHT</VScrollBar.ParentAlign>
         <VScrollBar.Left>632</VScrollBar.Left>
-        <VScrollBar.Top>425</VScrollBar.Top>
+        <VScrollBar.Top>476</VScrollBar.Top>
         <VScrollBar.Width>16</VScrollBar.Width>
         <VScrollBar.Height>40</VScrollBar.Height>
         <VScrollBar.GroupId>0</VScrollBar.GroupId>
@@ -407,7 +407,7 @@
         <VScrollBar.AutoDragSize>false</VScrollBar.AutoDragSize>
         <VScrollBar.Orientation>VERTICAL</VScrollBar.Orientation>
         <VScrollBar.MinusButton.Left>632</VScrollBar.MinusButton.Left>
-        <VScrollBar.MinusButton.Top>425</VScrollBar.MinusButton.Top>
+        <VScrollBar.MinusButton.Top>476</VScrollBar.MinusButton.Top>
         <VScrollBar.MinusButton.Width>16</VScrollBar.MinusButton.Width>
         <VScrollBar.MinusButton.Height>15</VScrollBar.MinusButton.Height>
         <VScrollBar.MinusButton.GroupId>0</VScrollBar.MinusButton.GroupId>
@@ -429,7 +429,7 @@
         <VScrollBar.MinusButton.UseDownFont>false</VScrollBar.MinusButton.UseDownFont>
         <VScrollBar.MinusButton.BevelStyle>BEVEL_RAISED</VScrollBar.MinusButton.BevelStyle>
         <VScrollBar.PlusButton.Left>632</VScrollBar.PlusButton.Left>
-        <VScrollBar.PlusButton.Top>450</VScrollBar.PlusButton.Top>
+        <VScrollBar.PlusButton.Top>501</VScrollBar.PlusButton.Top>
         <VScrollBar.PlusButton.Width>16</VScrollBar.PlusButton.Width>
         <VScrollBar.PlusButton.Height>15</VScrollBar.PlusButton.Height>
         <VScrollBar.PlusButton.GroupId>0</VScrollBar.PlusButton.GroupId>
@@ -464,7 +464,7 @@
         <VScrollBar.DragBar.BevelStyle>BEVEL_RAISED</VScrollBar.DragBar.BevelStyle>
         <HScrollBar.ParentAlign>PA_BOTTOM</HScrollBar.ParentAlign>
         <HScrollBar.Left>8</HScrollBar.Left>
-        <HScrollBar.Top>465</HScrollBar.Top>
+        <HScrollBar.Top>516</HScrollBar.Top>
         <HScrollBar.Width>624</HScrollBar.Width>
         <HScrollBar.Height>16</HScrollBar.Height>
         <HScrollBar.GroupId>0</HScrollBar.GroupId>
@@ -482,7 +482,7 @@
         <HScrollBar.AutoDragSize>false</HScrollBar.AutoDragSize>
         <HScrollBar.Orientation>HORIZONTAL</HScrollBar.Orientation>
         <HScrollBar.MinusButton.Left>8</HScrollBar.MinusButton.Left>
-        <HScrollBar.MinusButton.Top>465</HScrollBar.MinusButton.Top>
+        <HScrollBar.MinusButton.Top>516</HScrollBar.MinusButton.Top>
         <HScrollBar.MinusButton.Width>16</HScrollBar.MinusButton.Width>
         <HScrollBar.MinusButton.Height>16</HScrollBar.MinusButton.Height>
         <HScrollBar.MinusButton.GroupId>0</HScrollBar.MinusButton.GroupId>
@@ -504,7 +504,7 @@
         <HScrollBar.MinusButton.UseDownFont>false</HScrollBar.MinusButton.UseDownFont>
         <HScrollBar.MinusButton.BevelStyle>BEVEL_RAISED</HScrollBar.MinusButton.BevelStyle>
         <HScrollBar.PlusButton.Left>616</HScrollBar.PlusButton.Left>
-        <HScrollBar.PlusButton.Top>465</HScrollBar.PlusButton.Top>
+        <HScrollBar.PlusButton.Top>516</HScrollBar.PlusButton.Top>
         <HScrollBar.PlusButton.Width>16</HScrollBar.PlusButton.Width>
         <HScrollBar.PlusButton.Height>16</HScrollBar.PlusButton.Height>
         <HScrollBar.PlusButton.GroupId>0</HScrollBar.PlusButton.GroupId>
@@ -544,7 +544,7 @@
       <Type>1</Type>
       <Property>
         <Left>591</Left>
-        <Top>427</Top>
+        <Top>478</Top>
         <Width>36</Width>
         <Height>36</Height>
         <GroupId>0</GroupId>
@@ -582,7 +582,7 @@
       <Type>10</Type>
       <Property>
         <Left>561</Left>
-        <Top>469</Top>
+        <Top>528</Top>
         <Width>74</Width>
         <Height>32</Height>
         <GroupId>2</GroupId>
@@ -595,7 +595,7 @@
         <Font>
           <Name>Arial</Name>
           <Size>18</Size>
-          <Color>ffc0c0c0</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -625,7 +625,7 @@
         <Font>
           <Name>Arial</Name>
           <Size>16</Size>
-          <Color>ffc0c0c0</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>0</Flags>
         </Font>
@@ -655,7 +655,7 @@
         <Font>
           <Name>Arial</Name>
           <Size>16</Size>
-          <Color>ffc0c0c0</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
@@ -685,7 +685,7 @@
         <Font>
           <Name>Arial</Name>
           <Size>16</Size>
-          <Color>ffc0c0c0</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>10</Flags>
         </Font>
@@ -810,8 +810,8 @@
         <Width>32</Width>
         <Height>50</Height>
         <GroupId>1</GroupId>
-        <Enabled>false</Enabled>
-        <Visible>false</Visible>
+        <Enabled>true</Enabled>
+        <Visible>true</Visible>
         <Draggable>false</Draggable>
         <Pickable>true</Pickable>
         <ShowHint>false</ShowHint>
@@ -1031,7 +1031,7 @@
       <Type>8</Type>
       <Property>
         <Left>0</Left>
-        <Top>628</Top>
+        <Top>776</Top>
         <Width>640</Width>
         <Height>200</Height>
         <GroupId>2</GroupId>
@@ -1045,17 +1045,18 @@
         <RowIndex>-1</RowIndex>
         <ItemWidth>128</ItemWidth>
         <ItemHeight>50</ItemHeight>
+        <HeaderHeight>50</HeaderHeight>
         <Font>
           <Name>Arial</Name>
           <Size>18</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </Font>
         <HeaderFont>
           <Name>Arial</Name>
           <Size>20</Size>
-          <Color>ffffffff</Color>
+          <Color>ff3f3f3f</Color>
           <ShadowColor>ff000000</ShadowColor>
           <Flags>20</Flags>
         </HeaderFont>
@@ -1072,14 +1073,14 @@
 合計
 </Headers>
         <ShowHeader>true</ShowHeader>
-        <HeaderColor>ff6c6c6c</HeaderColor>
+        <HeaderColor>ffc1d0da</HeaderColor>
         <GridColor>0</GridColor>
         <HighlightColor>0</HighlightColor>
         <HotSpotColor>0</HotSpotColor>
         <ScrollType>SCROLL_NONE</ScrollType>
         <VScrollBar.ParentAlign>PA_RIGHT</VScrollBar.ParentAlign>
         <VScrollBar.Left>640</VScrollBar.Left>
-        <VScrollBar.Top>628</VScrollBar.Top>
+        <VScrollBar.Top>776</VScrollBar.Top>
         <VScrollBar.Width>16</VScrollBar.Width>
         <VScrollBar.Height>200</VScrollBar.Height>
         <VScrollBar.GroupId>0</VScrollBar.GroupId>
@@ -1097,7 +1098,7 @@
         <VScrollBar.AutoDragSize>false</VScrollBar.AutoDragSize>
         <VScrollBar.Orientation>VERTICAL</VScrollBar.Orientation>
         <VScrollBar.MinusButton.Left>640</VScrollBar.MinusButton.Left>
-        <VScrollBar.MinusButton.Top>628</VScrollBar.MinusButton.Top>
+        <VScrollBar.MinusButton.Top>776</VScrollBar.MinusButton.Top>
         <VScrollBar.MinusButton.Width>16</VScrollBar.MinusButton.Width>
         <VScrollBar.MinusButton.Height>15</VScrollBar.MinusButton.Height>
         <VScrollBar.MinusButton.GroupId>0</VScrollBar.MinusButton.GroupId>
@@ -1119,7 +1120,7 @@
         <VScrollBar.MinusButton.UseDownFont>false</VScrollBar.MinusButton.UseDownFont>
         <VScrollBar.MinusButton.BevelStyle>BEVEL_RAISED</VScrollBar.MinusButton.BevelStyle>
         <VScrollBar.PlusButton.Left>640</VScrollBar.PlusButton.Left>
-        <VScrollBar.PlusButton.Top>813</VScrollBar.PlusButton.Top>
+        <VScrollBar.PlusButton.Top>961</VScrollBar.PlusButton.Top>
         <VScrollBar.PlusButton.Width>16</VScrollBar.PlusButton.Width>
         <VScrollBar.PlusButton.Height>15</VScrollBar.PlusButton.Height>
         <VScrollBar.PlusButton.GroupId>0</VScrollBar.PlusButton.GroupId>
@@ -1154,7 +1155,7 @@
         <VScrollBar.DragBar.BevelStyle>BEVEL_RAISED</VScrollBar.DragBar.BevelStyle>
         <HScrollBar.ParentAlign>PA_BOTTOM</HScrollBar.ParentAlign>
         <HScrollBar.Left>0</HScrollBar.Left>
-        <HScrollBar.Top>828</HScrollBar.Top>
+        <HScrollBar.Top>976</HScrollBar.Top>
         <HScrollBar.Width>640</HScrollBar.Width>
         <HScrollBar.Height>16</HScrollBar.Height>
         <HScrollBar.GroupId>0</HScrollBar.GroupId>
@@ -1172,7 +1173,7 @@
         <HScrollBar.AutoDragSize>false</HScrollBar.AutoDragSize>
         <HScrollBar.Orientation>HORIZONTAL</HScrollBar.Orientation>
         <HScrollBar.MinusButton.Left>0</HScrollBar.MinusButton.Left>
-        <HScrollBar.MinusButton.Top>828</HScrollBar.MinusButton.Top>
+        <HScrollBar.MinusButton.Top>976</HScrollBar.MinusButton.Top>
         <HScrollBar.MinusButton.Width>16</HScrollBar.MinusButton.Width>
         <HScrollBar.MinusButton.Height>16</HScrollBar.MinusButton.Height>
         <HScrollBar.MinusButton.GroupId>0</HScrollBar.MinusButton.GroupId>
@@ -1194,7 +1195,7 @@
         <HScrollBar.MinusButton.UseDownFont>false</HScrollBar.MinusButton.UseDownFont>
         <HScrollBar.MinusButton.BevelStyle>BEVEL_RAISED</HScrollBar.MinusButton.BevelStyle>
         <HScrollBar.PlusButton.Left>624</HScrollBar.PlusButton.Left>
-        <HScrollBar.PlusButton.Top>828</HScrollBar.PlusButton.Top>
+        <HScrollBar.PlusButton.Top>976</HScrollBar.PlusButton.Top>
         <HScrollBar.PlusButton.Width>16</HScrollBar.PlusButton.Width>
         <HScrollBar.PlusButton.Height>16</HScrollBar.PlusButton.Height>
         <HScrollBar.PlusButton.GroupId>0</HScrollBar.PlusButton.GroupId>
@@ -1227,6 +1228,91 @@
         <HScrollBar.DragBar.ShowHint>false</HScrollBar.DragBar.ShowHint>
         <HScrollBar.DragBar.Color>ffbfbfbf</HScrollBar.DragBar.Color>
         <HScrollBar.DragBar.BevelStyle>BEVEL_RAISED</HScrollBar.DragBar.BevelStyle>
+      </Property>
+    </Object>
+    <Object>
+      <Name>RangeSliderPanel</Name>
+      <Type>3</Type>
+      <Property>
+        <Left>0</Left>
+        <Top>676</Top>
+        <Width>640</Width>
+        <Height>100</Height>
+        <GroupId>2</GroupId>
+        <Enabled>true</Enabled>
+        <Visible>true</Visible>
+        <Draggable>false</Draggable>
+        <Pickable>true</Pickable>
+        <ShowHint>false</ShowHint>
+        <Color>0</Color>
+        <BevelStyle>BEVEL_NONE</BevelStyle>
+      </Property>
+    </Object>
+    <Object>
+      <Name>FuncPanel</Name>
+      <Type>3</Type>
+      <Property>
+        <Left>0</Left>
+        <Top>420</Top>
+        <Width>640</Width>
+        <Height>56</Height>
+        <GroupId>1</GroupId>
+        <Enabled>true</Enabled>
+        <Visible>true</Visible>
+        <Draggable>false</Draggable>
+        <Pickable>true</Pickable>
+        <ShowHint>false</ShowHint>
+        <Color>0</Color>
+        <BevelStyle>BEVEL_NONE</BevelStyle>
+      </Property>
+    </Object>
+    <Object>
+      <Name>FuncCheckBox</Name>
+      <Type>5</Type>
+      <Property>
+        <Left>26</Left>
+        <Top>432</Top>
+        <Width>32</Width>
+        <Height>32</Height>
+        <GroupId>1</GroupId>
+        <Enabled>true</Enabled>
+        <Visible>true</Visible>
+        <Draggable>false</Draggable>
+        <Pickable>true</Pickable>
+        <ShowHint>false</ShowHint>
+        <Color>0</Color>
+        <BevelStyle>BEVEL_NONE</BevelStyle>
+        <Caption>均線</Caption>
+        <Font>
+          <Name>Arial</Name>
+          <Size>20</Size>
+          <Color>ffffffff</Color>
+          <ShadowColor>ff000000</ShadowColor>
+          <Flags>0</Flags>
+        </Font>
+        <MarkColor>ff0000ff</MarkColor>
+        <Checked>false</Checked>
+        <CaptionPadding>4</CaptionPadding>
+        <Box>
+          <Bitmap>btn_checked.png</Bitmap>
+          <UV>0 0 1 1</UV>
+          <Transparent>0</Transparent>
+          <Stretch>1</Stretch>
+          <Brightness>0</Brightness>
+          <Transparency>0</Transparency>
+          <Flip>0</Flip>
+          <Rotation>0</Rotation>
+        </Box>
+        <Mark>
+          <Bitmap>btn_unchecked.png</Bitmap>
+          <UV>0 0 1 1</UV>
+          <Transparent>0</Transparent>
+          <Stretch>1</Stretch>
+          <Brightness>0</Brightness>
+          <Transparency>0</Transparency>
+          <Flip>0</Flip>
+          <Rotation>0</Rotation>
+        </Mark>
       </Property>
     </Object>
   </Objects>

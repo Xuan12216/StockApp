@@ -1,5 +1,6 @@
 package com.example.ZhuJiaHong.activity;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.view.KeyEvent;
 import android.view.View;
@@ -11,6 +12,7 @@ import com.example.ZhuJiaHong.Util.Data;
 import com.example.ZhuJiaHong.Util.MyUtils1;
 import com.example.ZhuJiaHong.domain.Future;
 import com.example.ZhuJiaHong.object.HomePage;
+import com.example.myfirstaarproject.MainActivity;
 import com.mdbs.base.view.activity.ActivityHomePageBase;
 import com.mdbs.base.view.object.homepage.BaseHomePage;
 import com.mdbs.base.view.utils.AlertDialogUtil;
@@ -76,6 +78,7 @@ public class ActivityHomePage extends ActivityHomePageBase {
                 finish();
             });
         }
+
         return false;
     }
 }

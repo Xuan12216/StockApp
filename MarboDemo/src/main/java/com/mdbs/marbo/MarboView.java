@@ -16,6 +16,7 @@ public class MarboView extends GLTextureView
 	ShowInfoListener mShowInfoListener = null;
 	SlotInfoButtonClickListener mSlotInfoButtonClickListener = null;
 	ScrollStateListener mScrollStateListener = null;
+	FuncCheckBoxClickListener mFuncCheckBoxClickListener = null;
     int [] mTouches = new int[10];
 	long mContextId = 0;
 	int mScrollState = 0;
@@ -48,12 +49,15 @@ public class MarboView extends GLTextureView
 	public static final int CT_BAR_SHORT = 0x100000;
 	public static final int CT_BAR_LENDING = 0x200000;
 	public static final int CT_SHOW_NETBUYSELL_HOLDING = 0x400000;
+	public static final int CT_PARABOLIC_SAR = 0x800000;
 	public static final int CT_BAR_BROKER_BUYSELL = 0x1000000;
 	public static final int CT_CURVE_BIAS = 0x2000000;
 	public static final int CT_CURVE_RAINBOW = 0x4000000;
 	public static final int CT_BAR_STRENGTH_K = 0x8000000;
 	public static final int CT_BAR_DAY_TRADING = 0x10000000;
-	
+	public static final int CT_SHOW_TAG = 0x20000000;
+	public static final int CT_SHOW_ICON_LINK = 0x40000000;
+
 	// enum of graph color types
 	public static final int GC_UP = 0;
 	public static final int GC_DOWN = 1;
@@ -79,9 +83,18 @@ public class MarboView extends GLTextureView
 	public static final int GC_HOLDING = 21;
 	public static final int GC_PRICE = 22;
 	public static final int GC_BAND = 23;
-	public static final int GC_BIAS = 24;
+	public static final int GC_BIAS_DIFF = 24;
 	public static final int GC_DAY_TRADING = 25;
 	public static final int GC_DAY_TRADING_RATIO = 26;
+	public static final int GC_BIAS1 = 27;
+	public static final int GC_BIAS2 = 28;
+	public static final int GC_D9_UP_FILL = 29;
+	public static final int GC_D9_DOWN_FILL = 30;
+	public static final int GC_RSI10_UP_FILL = 31;
+	public static final int GC_RSI10_DOWN_FILL = 32;
+	public static final int GC_ICON_LINK = 33;
+	public static final int GC_PARABOLIC_SAR_UP = 34;
+	public static final int GC_PARABOLIC_SAR_DOWN = 35;
 	
 	// enum of MA types
 	public static final int MA_5 = 0;
@@ -121,6 +134,8 @@ public class MarboView extends GLTextureView
 	public static final int DO_FULL_SCREEN_SCROLL = 0x20;
 	public static final int DO_HIDE_MAIN_CHART = 0x40;
 	public static final int DO_PRETTY_FLOAT_VALUE = 0x80;
+	public static final int DO_RANGE_SLIDER = 0x100;
+	public static final int DO_MAIN_CHART_FUNC = 0x200;
 	
 	// enum IconPosition
 	public static final int IP_CENTER = 0;
@@ -167,6 +182,7 @@ public class MarboView extends GLTextureView
 	public static final int CI_SHORT_BALANCE = 72;
 	public static final int CI_TOTAL_SHARES = 73;
 	public static final int CI_SHARE_HOLDING = 74;
+	public static final int CI_TAG = (CI_SHARE_HOLDING + MAX_NETBUYSELL_TYPES);
 		
 	// enum of DetailListType
 	public static final int DLT_NONE = 0;
@@ -251,6 +267,9 @@ public class MarboView extends GLTextureView
 	}
 	public interface ScrollStateListener {
 		void onChange(int state);
+	}
+	public interface FuncCheckBoxClickListener {
+		void onClick(int index, boolean checked);
 	}
 
 	public MarboView(Context context, AttributeSet attrs) {
@@ -545,9 +564,9 @@ public class MarboView extends GLTextureView
 		MarboApp_SetAuroraTypes(mContextId, types);
 	}
 	
-	public void SetBiasAvgDays(int num)
+	public void SetBiasAvgDays(int ma1_days, int ma2_days)
 	{
-		MarboApp_SetBiasAvgDays(mContextId, num);
+		MarboApp_SetBiasAvgDays(mContextId, ma1_days, ma2_days);
 	}
 	
 	public void SetStrengthMACandles(int ma_short, int ma_long)
@@ -558,6 +577,16 @@ public class MarboView extends GLTextureView
 	public void SetVisibleSlotInfoButtons(int flags)
 	{
 		MarboApp_SetVisibleSlotInfoButtons(mContextId, flags);
+	}
+	
+	public void SetFuncCheckBoxes(String [] captions)
+	{
+		MarboApp_SetFuncCheckBoxes(mContextId, captions);
+	}
+	
+	public void SetFuncCheckBoxStatus(int index, boolean checked)
+	{
+		MarboApp_SetFuncCheckBoxStatus(mContextId, index, checked);
 	}
 	
 	public void LoadReportData(String jsonMonthIncome, String jsonSeason, String jsonYearBonus, 
@@ -589,10 +618,10 @@ public class MarboView extends GLTextureView
 	}
 	
 	public void LoadMajorShareHolderData(String jsonWeekData, String jsonShareholderDistrib, String jsonSupervisors,
-		String jsonShareholderTopList)
+		String jsonShareholderTopList, String jsonShareholderDetailList)
 	{
 		MarboApp_ChartClear(mContextId, true);
-		MarboApp_LoadMajorShareHolderData(mContextId, jsonWeekData, jsonShareholderDistrib, jsonSupervisors, jsonShareholderTopList);
+		MarboApp_LoadMajorShareHolderData(mContextId, jsonWeekData, jsonShareholderDistrib, jsonSupervisors, jsonShareholderTopList, jsonShareholderDetailList);
 		requestRender();
 	}
 
@@ -635,6 +664,16 @@ public class MarboView extends GLTextureView
 	public void SetScrollStateListener(ScrollStateListener listener)
 	{
 		mScrollStateListener = listener;
+	}
+	
+	public void SetFuncCheckBoxClickListener(FuncCheckBoxClickListener listener)
+	{
+		mFuncCheckBoxClickListener = listener;
+	}
+	
+	public void FuncCheckBoxClick(int index, int checked)
+	{
+		if(mFuncCheckBoxClickListener != null) mFuncCheckBoxClickListener.onClick(index, checked!=0);
 	}
 
 	private int ArgbToAbgr(int argb)
@@ -690,16 +729,18 @@ public class MarboView extends GLTextureView
 	native void MarboApp_SetBandInterval(long contextId, String start_time, String end_time);
 	native void MarboApp_AuroraGroup(long contextId, int type, int start_day, int end_day, int color);
 	native void MarboApp_SetAuroraTypes(long contextId, int types);
-	native void MarboApp_SetBiasAvgDays(long contextId, int num);
+	native void MarboApp_SetBiasAvgDays(long contextId, int ma1_days, int ma2_days);
 	native void MarboApp_SetStrengthMACandles(long contextId, int ma_short, int ma_long);
 	native void MarboApp_SetVisibleSlotInfoButtons(long contextId, int flags);
+	native void MarboApp_SetFuncCheckBoxes(long contextId, String [] captions);
+	native void MarboApp_SetFuncCheckBoxStatus(long contextId, int index, boolean checked);
 	native void MarboApp_LoadReport(long contextId, String jsonMonthIncome, String jsonSeason, String jsonYearBonus,
 		String jsonSeasonBonus, String jsonMonthCandle, String lastCloseDate, float lastClosePrice);
 	native void MarboApp_LoadRiver(long contextId, String jsonKDays, String jsonSeason);
 	native void MarboApp_LoadOptionData(long contextId, String strJson);
 	native void MarboApp_SetOptionParams(long contextId, int candlesInView, boolean zoomable);
 	native void MarboApp_LoadMajorShareHolderData(long contextId, String jsonWeekData, String jsonShareholderDistrib, 
-		String jsonSupervisors, String jsonShareholderTopList);
+		String jsonSupervisors, String jsonShareholderTopList, String jsonShareholderDetailList);
 	native void MarboApp_SetAutoBoldFont(boolean enabled, int minFontSize);
 	native int MarboApp_GetClientScrollState(long contextId);
 	static native int MarboApp_GetBuildNumber();

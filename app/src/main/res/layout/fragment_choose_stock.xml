@@ -51,13 +51,10 @@
 
         </com.google.android.material.tabs.TabLayout>
 
-        <ImageView
+        <com.mdbs.base.view.object.title.TitleView
             android:id="@+id/imageView1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:adjustViewBounds="true"
-            android:background="@color/grown"
-            android:src="@mipmap/picture_background"
+            android:layout_height="60dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
